@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/reset.css';
-import App from './page/home/App';
+import Router from './router'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <App />,
+    <Router />,
     document.getElementById('root')
 );
 
