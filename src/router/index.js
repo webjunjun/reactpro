@@ -13,6 +13,7 @@ const routes = [{
 }];
 
 // 路由
+// route.exact严格匹配
 const Routers = () => (
     <Router>
         <Switch>
