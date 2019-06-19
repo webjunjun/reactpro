@@ -1,15 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // 组件
-import App from '../page/home/App';
+// import App from '../page/home/App';
 import About from '../page/about/About';
-const routes = [{
-    path: '/',
-    component: App,
-    exact: true
-}, {
+import UserMgmt from '../page/user/UserMgmt';
+const routes = [
+    // {
+    // path: '/',
+    // component: App,
+    // exact: true
+    // },
+    {
     path: '/about',
     component: About,
+},{
+    path: '/user',
+    component: UserMgmt,
 }];
 
 // 路由
