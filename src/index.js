@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/css/reset.css';
+// import './assets/css/reset.css';
 import Router from './router'
 import * as serviceWorker from './serviceWorker';
 

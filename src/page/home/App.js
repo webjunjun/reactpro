@@ -1,68 +1,63 @@
+// import必须在业务代码前
 import React from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import './App.css';
+import { Layout, Menu, Icon, Avatar, Dropdown } from 'antd';
+// 业务代码
 const { Header, Content, Footer, Sider } = Layout;
-// import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('提交的名字: ' + this.state.value);
-    event.preventDefault();
-  }
 
   render() {
+    const menu = (
+      <Menu>
+        <Menu.Item className="dropdown_item">退出</Menu.Item>
+      </Menu>
+    );
     return (
       <Layout className="app">
         <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
+          collapsible
         >
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+          <div className="logo"></div>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-              <Icon type="user" />
-              <span className="nav-text">nav 1</span>
+              <Icon type="team" />
+              <span className="nav-text">用户管理</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span className="nav-text">nav 2</span>
+              <Icon type="menu" />
+              <span className="nav-text">栏目管理</span>
             </Menu.Item>
             <Menu.Item key="3">
-              <Icon type="upload" />
-              <span className="nav-text">nav 3</span>
+              <Icon type="tags" />
+              <span className="nav-text">Tags分类</span>
             </Menu.Item>
             <Menu.Item key="4">
-              <Icon type="user" />
-              <span className="nav-text">nav 4</span>
+              <Icon type="form" />
+              <span className="nav-text">文章管理</span>
+            </Menu.Item>
+            <Menu.Item key="5">
+              <Icon type="message" />
+              <span className="nav-text">评论管理</span>
+            </Menu.Item>
+            <Menu.Item key="6">
+              <Icon type="notification" />
+              <span className="nav-text">消息通知</span>
+            </Menu.Item>
+            <Menu.Item key="7">
+              <Icon type="project" />
+              <span className="nav-text">主题模板</span>
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              <form onSubmit={this.handleSubmit}>
-                <label>
-                  名字:
-                  <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="提交" />
-              </form>
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>博文天下 ©2015~2019 Created by liujunn</Footer>
+          <Header className="top_header">
+            <Dropdown overlay={menu}>
+              <Avatar style={{ backgroundColor: '#87d068',float: 'right' }} icon="user" />
+            </Dropdown>
+          </Header>
+          <Content className="container"></Content>
+          <Footer className="bottom_footer">博文天下 ©2015~2019 Created by liujunn</Footer>
         </Layout>
       </Layout>
     );
