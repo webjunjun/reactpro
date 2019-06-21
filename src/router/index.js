@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import App from '../page/home/App';
 import About from '../page/about/About';
 import UserMgmt from '../page/user/UserMgmt';
+import ColumnMgmt from '../page/column/ColumnMgmt';
 const routes = [
     // {
     // path: '/',
@@ -16,6 +17,9 @@ const routes = [
 },{
     path: '/user',
     component: UserMgmt,
+},{
+    path: '/column',
+    component: ColumnMgmt,
 }];
 
 // 路由
