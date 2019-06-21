@@ -29,7 +29,7 @@ class App extends React.Component {
               </a>
             </Menu.Item>
             <Menu.Item key="2">
-              <a href="/about">
+              <a href="/column">
                 <Icon type="menu" />
                 <span className="nav-text">栏目管理</span>
               </a>

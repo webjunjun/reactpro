@@ -196,23 +196,23 @@ class UserMgmt extends React.Component {
             </Col>
           </Row>
           <Row>
-          <Col span={24}>
-            <Table rowSelection={rowSelection} rowKey="number" bordered columns={columns} dataSource={data} />
-            <Modal
-              title="编辑用户"
-              visible={this.state.visible}
-              onOk={this.handleOk}
-              onCancel={this.handleCancel}
-              okText="确定"
-              cancelText="取消"
-            >
-              <div>
-                <EditUserForm
-                  wrappedComponentRef={this.saveFormRef}
-                ></EditUserForm>
-              </div>
-            </Modal>
-          </Col>
+            <Col span={24}>
+              <Table rowSelection={rowSelection} rowKey="number" bordered columns={columns} dataSource={data} />
+              <Modal
+                title="编辑用户"
+                visible={this.state.visible}
+                onOk={this.handleOk}
+                onCancel={this.handleCancel}
+                okText="确定"
+                cancelText="取消"
+              >
+                <div>
+                  <EditUserForm
+                    wrappedComponentRef={this.saveFormRef}
+                  ></EditUserForm>
+                </div>
+              </Modal>
+            </Col>
           </Row>
         </Col>
       </Row>
