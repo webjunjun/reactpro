@@ -17,7 +17,8 @@ class App extends React.Component {
     return (
       <Layout className="app">
         <Sider
-          collapsible
+          breakpoint="lg"
+          collapsedWidth="0"
         >
           <div className="logo"></div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
