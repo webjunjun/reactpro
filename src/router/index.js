@@ -5,13 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from '../page/about/About';
 import UserMgmt from '../page/user/UserMgmt';
 import ColumnMgmt from '../page/column/ColumnMgmt';
-const routes = [
-    // {
-    // path: '/',
-    // component: App,
-    // exact: true
-    // },
-    {
+const routes = [{
     path: '/about',
     component: About,
 },{
