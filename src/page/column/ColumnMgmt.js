@@ -101,24 +101,18 @@ class ColumnMgmt extends React.Component {
 
   render() {
     const columns = [{
-      title: "序号",
+      title: "栏目ID",
       dataIndex: "number",
       sorter: (a, b) => {
         return a.number - b.number
       },
       sortDirections: ['descend', 'ascend']
     }, {
-      title: "姓名",
-      dataIndex: "name"
+      title: "栏目名",
+      dataIndex: "cloumn_name"
     }, {
-      title: "手机号",
-      dataIndex: "mobile"
-    }, {
-      title: "邮箱",
-      dataIndex: "mail"
-    }, {
-      title: "角色",
-      dataIndex: "role"
+      title: "栏目类型",
+      dataIndex: "cloumn_type"
     }, {
       title: "操作",
       dataIndex: "oprate",
@@ -128,7 +122,7 @@ class ColumnMgmt extends React.Component {
             <a href="javascript:;" onClick={this.showModal}>编辑</a>
             &nbsp;&nbsp;
             <Popconfirm
-              title="确定删除该管理员吗？"
+              title="确定删除该栏目吗？"
               onConfirm={this.confirmDel}
               onCancel={this.cancelDel}
               okText="确定"
@@ -136,46 +130,27 @@ class ColumnMgmt extends React.Component {
             >
               <a href="javascript:;">删除</a>
             </Popconfirm>
-            &nbsp;&nbsp;
-            <Popconfirm
-              title="确定停用该管理员吗？"
-              onConfirm={this.confirmDel}
-              onCancel={this.cancelDel}
-              okText="确定"
-              cancelText="取消"
-            >
-              <a href="javascript:;">停用</a>
-            </Popconfirm>
           </span>
         )
       }
     }];
     const data = [{
       number: 1,
-      name: "刘军",
-      mobile: "15629047169",
-      mail: "975502845@qq.com",
-      role: '超级管理员',
+      cloumn_name: "web前端",
+      cloumn_type: "列表"
     },{
       number: 2,
-      name: "刘军",
-      mobile: "15629047169",
-      mail: "975502845@qq.com",
-      role: ' 管理员',
+      cloumn_name: "项目",
+      cloumn_type: "列表"
+    },{
+      number: 3,
+      cloumn_name: "日常",
+      cloumn_type: "列表"
+    },{
+      number: 4,
+      cloumn_name: "关于我",
+      cloumn_type: "封面"
     }];
-    const rowSelection = {
-      hideDefaultSelections: true,
-      onChange: (selectedRowKeys, selectedRows) => {
-        console.log(`${selectedRowKeys}`);
-      },
-      selections: [{
-        key: "all",
-        text: "删除",
-        onSelect() {
-          // 
-        }
-      }]
-    }
     return (
       <Row>
         <Col span={24}>
@@ -183,12 +158,12 @@ class ColumnMgmt extends React.Component {
             <Col span={2}>
               <Button type="primary">
                 <Icon type="plus" />
-                新增用户
+                新增栏目
               </Button>
             </Col>
             <Col span={12}>
               <Search
-                placeholder="输入姓名"
+                placeholder="输入栏目"
                 enterButton="搜索"
                 size="large"
                 onSearch={value => console.log(value)}
@@ -197,7 +172,7 @@ class ColumnMgmt extends React.Component {
           </Row>
           <Row>
             <Col span={24}>
-              <Table rowSelection={rowSelection} rowKey="number" bordered columns={columns} dataSource={data} />
+              <Table rowKey="number" bordered columns={columns} dataSource={data} />
               <Modal
                 title="编辑用户"
                 visible={this.state.visible}
