@@ -22,3 +22,8 @@
 .bottom_footer{
     text-align: center;
 }
+/* 编辑器 */
+.bf-container {
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+}

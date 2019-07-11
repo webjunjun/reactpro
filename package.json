@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.18.0",
     "babel-plugin-import": "^1.11.0",
+    "braft-editor": "^2.3.7",
     "customize-cra": "^0.2.12",
     "react": "^16.8.6",
     "react-app-rewired": "^2.1.3",
