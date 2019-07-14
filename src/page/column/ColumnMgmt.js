@@ -88,13 +88,11 @@ class ColumnMgmt extends React.Component {
       <Row>
         <Col span={24}>
           <Row style={{marginBottom: "20px"}}>
-            <Col span={2}>
-              <Button type="primary" onClick={this.addColumn}>
+            <Col span={12} className="flex_box">
+              <Button type="primary" className="mr20_btn40" onClick={this.addColumn}>
                 <Icon type="plus" />
                 新增栏目
               </Button>
-            </Col>
-            <Col span={12}>
               <Search
                 placeholder="输入栏目"
                 enterButton="搜索"
