@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Button, Icon,Table, Popconfirm, message, Modal, Form, Input, Select } from 'antd';
+const { Option } = Select;
 
 // 表单
 const EditUserForm = Form.create({name: "edit_user_form"})(
@@ -180,13 +181,11 @@ class UserMgmt extends React.Component {
       <Row>
         <Col span={24}>
           <Row style={{marginBottom: "20px"}}>
-            <Col span={2}>
-              <Button type="primary">
+            <Col span={12} className="flex_box">
+              <Button type="primary" className="mr20_btn40">
                 <Icon type="plus" />
                 新增用户
               </Button>
-            </Col>
-            <Col span={12}>
               <Search
                 placeholder="输入姓名"
                 enterButton="搜索"

@@ -27,3 +27,12 @@
     border: 1px solid #d1d1d1;
     border-radius: 5px;
 }
+
+.flex_box{
+    display: flex;
+    align-items: center;
+}
+.flex_box .mr20_btn40{
+    margin-right: 20px;
+    height: 40px;
+}
