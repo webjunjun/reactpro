@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Input, Select, Button } from 'antd';
+import { Row, Col, Input, Select, Button, Upload, message, Icon } from 'antd';
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -12,11 +12,30 @@ class ColumnAdd extends React.Component {
   }
 
   render() {
+    const props = {
+      name: 'file',
+      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+      headers: {
+        authorization: 'authorization-text',
+      },
+      onChange(info) {
+        if (info.file.status !== 'uploading') {
+          console.log(info.file, info.fileList);
+        }
+        if (info.file.status === 'done') {
+          message.success(`${info.file.name} file uploaded successfully`);
+        } else if (info.file.status === 'error') {
+          message.error(`${info.file.name} file upload failed.`);
+        }
+      },
+    };
+
     return (
       <Row>
         <Col span={24}>
           <Row>
             <Col span={24}>
+              <h1>新增栏目</h1>
               <div className="flex-form-item">
                 <label>栏目名称：</label>
                 <Input placeholder="栏目名称" allowClear />
@@ -25,10 +44,6 @@ class ColumnAdd extends React.Component {
                 <label>栏目别名：</label>
                 <Input placeholder="栏目别名" allowClear />
               </div>
-              {/* <div className="flex-form-item">
-                <label>所属父栏目：</label>
-                <Input placeholder="所属父栏目" allowClear />
-              </div> */}
               <div className="flex-form-item">
                 <label style={{width: "132px"}}>栏目类型：</label>
                 <Select defaultValue="1">
@@ -41,12 +56,14 @@ class ColumnAdd extends React.Component {
                 <Input placeholder="栏目存放文件夹" allowClear />
               </div>
               <div className="flex-form-item">
-                <label>栏目缩略图：</label>
-                <Input placeholder="栏目缩略图" allowClear />
-              </div>
-              <div className="flex-form-item">
-                <label>绑定域名：</label>
-                <Input placeholder="绑定域名" allowClear />
+                <label style={{width: "132px"}}>栏目缩略图：</label>
+                <div>
+                  <Upload {...props}>
+                    <Button>
+                      <Icon type="upload" /><span>&nbsp;点击上传</span>
+                    </Button>
+                  </Upload>
+                </div>
               </div>
               <div className="flex-form-item">
                 <label>页面关键字：</label>
