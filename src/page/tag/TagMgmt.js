@@ -35,14 +35,15 @@ class TagMgmt extends React.Component {
     this.state = {
       visible: false
     };
-    this.addTag = this.addTag.bind(this);
+    // this.addTag = this.addTag.bind(this);
     this.handleOk = this.handleOk.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.confirmDel = this.confirmDel.bind(this);
     this.cancelDel = this.cancelDel.bind(this);
   }
 
-  addTag () {
+  // 使用箭头函数可以省去在constructor里绑定bind
+  addTag = () => {
     this.setState({
       visible: true,
     });
