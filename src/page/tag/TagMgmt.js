@@ -42,7 +42,7 @@ class TagMgmt extends React.Component {
     this.cancelDel = this.cancelDel.bind(this);
   }
 
-  // 使用箭头函数可以省去在constructor里绑定bind
+  // 使用public class fields可以省去在constructor里使用bind绑定this
   addTag = () => {
     this.setState({
       visible: true,
