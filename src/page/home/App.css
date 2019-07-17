@@ -36,3 +36,31 @@
     margin-right: 20px;
     height: 40px;
 }
+
+.flex-form-item{
+    margin-bottom: 20px;
+}
+.flex-form-item label{
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+    line-height: 32px;
+}
+.flex-form-item input,.flex-form-item .ant-select{
+    width: 100%;
+    max-width: 300px;
+}
+.ml132{
+    margin-left: 132px;
+}
+
+/* 大于576的屏幕 */
+@media (min-width: 576px) {
+    .flex-form-item{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .flex-form-item label{
+        text-align: right;
+    }
+}

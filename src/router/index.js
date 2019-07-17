@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // 组件
-// import App from '../page/home/App';
-// import About from '../page/about/About';
 import UserMgmt from '../page/user/UserMgmt';
 import ColumnMgmt from '../page/column/ColumnMgmt';
 import ColumnAdd from '../page/column/ColumnAdd';
