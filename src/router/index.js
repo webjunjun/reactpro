@@ -6,6 +6,8 @@ import ColumnMgmt from '../page/column/ColumnMgmt';
 import ColumnAdd from '../page/column/ColumnAdd';
 import ColumnEdit from '../page/column/ColumnEdit';
 import ArticleMgmt from '../page/article/ArticleMgmt';
+import ArticleAdd from '../page/article/ArticleAdd';
+import ArticleUpdate from '../page/article/ArticleUpdate';
 import TagMgmt from '../page/tag/TagMgmt';
 import DiscussMgmt from '../page/discuss/DiscussMgmt';
 import MessageMgmt from '../page/message/MsgMgmt';
@@ -26,6 +28,12 @@ const routes = [{
 },{
     path: '/article/list',
     component: ArticleMgmt,
+},{
+    path: '/article/add',
+    component: ArticleAdd,
+},{
+    path: '/article/update',
+    component: ArticleUpdate,
 },{
     path: '/tag/list',
     component: TagMgmt,
