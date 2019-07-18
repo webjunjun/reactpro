@@ -7,9 +7,9 @@ import ColumnAdd from '../page/column/ColumnAdd';
 import ColumnEdit from '../page/column/ColumnEdit';
 import ArticleMgmt from '../page/article/ArticleMgmt';
 import TagMgmt from '../page/tag/TagMgmt';
-import DiscussMgmt from '../page/tag/TagMgmt';
-import MessageMgmt from '../page/tag/TagMgmt';
-import ThemeMgmt from '../page/tag/TagMgmt';
+import DiscussMgmt from '../page/discuss/DiscussMgmt';
+import MessageMgmt from '../page/message/MsgMgmt';
+import ThemeMgmt from '../page/theme/ThemeMgmt';
 
 const routes = [{
     path: '/user/list',
