@@ -1,50 +1,107 @@
 import React from 'react';
-import { Row, Col, Table } from 'antd';
-// 编辑器
-import BraftEditor from 'braft-editor';
-import 'braft-editor/dist/index.css';
+import { Row, Col, Button, Icon, Input, Table, Popconfirm } from 'antd';
 
+const Search = Input.Search;
 class ArticleMgmt extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
+  }
+
+  addArticle = () => {
+    this.props.history.push("/article/add");
+  }
+
+  editArticle = () => {
+    this.props.history.push("/article/update");
+  }
 
   render() {
-    const dataSource = [
-      {
-        key: '1',
-        name: '胡彦斌',
-        age: 32,
-        address: '西湖区湖底公园1号',
+    const columns = [{
+      title: "ID",
+      dataIndex: "number",
+      sorter: (a, b) => {
+        return a.number - b.number
       },
-      {
-        key: '2',
-        name: '胡彦祖',
-        age: 42,
-        address: '西湖区湖底公园1号',
-      },
-    ];
-    
-    const columns = [
-      {
-        title: '姓名',
-        dataIndex: 'name',
-        key: 'name',
-      },
-      {
-        title: '年龄',
-        dataIndex: 'age',
-        key: 'age',
-      },
-      {
-        title: '住址',
-        dataIndex: 'address',
-        key: 'address',
-      },
-    ];
+      sortDirections: ['descend', 'ascend']
+    }, {
+      title: "文章名",
+      dataIndex: "article_name"
+    }, {
+      title: "点击数",
+      dataIndex: "click_num",
+      render: (text) => {
+        return (
+          <a href="javascript:;">{text}</a>
+        );
+      }
+    }, {
+      title: "评论数",
+      dataIndex: "discuss_num",
+      render: (text) => {
+        return (
+          <a href="javascript:;">{text}</a>
+        );
+      }
+    }, {
+      title: "作者",
+      dataIndex: "author"
+    }, {
+      title: "操作",
+      dataIndex: "oprate",
+      render: (text, record) => {
+        return (
+          <span>
+            <a href="javascript:;" onClick={this.editArticle}>编辑</a>
+            &nbsp;&nbsp;
+            <Popconfirm
+              title="确定删除该文章吗？"
+              onConfirm={this.confirmDel}
+              onCancel={this.cancelDel}
+              okText="确定"
+              cancelText="取消"
+            >
+              <a href="javascript:;">删除</a>
+            </Popconfirm>
+          </span>
+        )
+      }
+    }];
+    const data = [{
+      number: 1,
+      article_name: "web前端",
+      click_num: "10",
+      discuss_num: "1",
+      author: "刘军"
+    },{
+      number: 2,
+      article_name: "node.js",
+      click_num: "10",
+      discuss_num: "1",
+      author: "刘军"
+    }];
     return (
       <Row>
         <Col span={24}>
+          <Row style={{marginBottom: "20px"}}>
+            <Col span={12} className="flex_box">
+              <Button type="primary" className="mr20_btn40" onClick={this.addArticle}>
+                <Icon type="plus" />
+                新增文章
+              </Button>
+              <Search
+                placeholder="输入文章名"
+                enterButton="搜索"
+                size="large"
+                onSearch={value => console.log(value)}
+              />
+            </Col>
+          </Row>
           <Row>
             <Col span={24}>
-              <Table dataSource={dataSource} columns={columns} />;
+              <Table rowKey="number" bordered columns={columns} dataSource={data} />
             </Col>
           </Row>
         </Col>
