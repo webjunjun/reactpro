@@ -1,50 +1,107 @@
 import React from 'react';
-import { Row, Col } from 'antd';
-// 编辑器
-import BraftEditor from 'braft-editor';
-import 'braft-editor/dist/index.css';
+import { Row, Col, Button, Icon, Input, Table, Popconfirm } from 'antd';
 
+const Search = Input.Search;
 class ArticleMgmt extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // 创建一个空的editorState作为初始值
-      editorState: BraftEditor.createEditorState(null)
+      visible: false
     };
   }
 
-  // async componentDidMount () {
-  //   // 假设此处从服务端获取html格式的编辑器内容
-  //   const htmlContent = await fetchEditorContent();
-  //   // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
-  //   this.setState({
-  //       editorState: BraftEditor.createEditorState(htmlContent);
-  //   })
-  // }
-
-  submitContent = async () => {
-    // 在编辑器获得焦点时按下ctrl+s会执行此方法
-    // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-    const htmlContent = this.state.editorState.toHTML();
-    // const result = await saveEditorContent(htmlContent);
+  addArticle = () => {
+    this.props.history.push("/article/add");
   }
 
-  handleEditorChange = (editorState) => {
-    this.setState({ editorState });
+  editArticle = () => {
+    this.props.history.push("/article/update");
   }
 
   render() {
-    const { editorState } = this.state;
+    const columns = [{
+      title: "ID",
+      dataIndex: "number",
+      sorter: (a, b) => {
+        return a.number - b.number
+      },
+      sortDirections: ['descend', 'ascend']
+    }, {
+      title: "文章名",
+      dataIndex: "article_name"
+    }, {
+      title: "点击数",
+      dataIndex: "click_num",
+      render: (text) => {
+        return (
+          <a href="javascript:;">{text}</a>
+        );
+      }
+    }, {
+      title: "评论数",
+      dataIndex: "discuss_num",
+      render: (text) => {
+        return (
+          <a href="javascript:;">{text}</a>
+        );
+      }
+    }, {
+      title: "作者",
+      dataIndex: "author"
+    }, {
+      title: "操作",
+      dataIndex: "oprate",
+      render: (text, record) => {
+        return (
+          <span>
+            <a href="javascript:;" onClick={this.editArticle}>编辑</a>
+            &nbsp;&nbsp;
+            <Popconfirm
+              title="确定删除该文章吗？"
+              onConfirm={this.confirmDel}
+              onCancel={this.cancelDel}
+              okText="确定"
+              cancelText="取消"
+            >
+              <a href="javascript:;">删除</a>
+            </Popconfirm>
+          </span>
+        )
+      }
+    }];
+    const data = [{
+      number: 1,
+      article_name: "web前端",
+      click_num: "10",
+      discuss_num: "1",
+      author: "刘军"
+    },{
+      number: 2,
+      article_name: "node.js",
+      click_num: "10",
+      discuss_num: "1",
+      author: "刘军"
+    }];
     return (
       <Row>
         <Col span={24}>
+          <Row style={{marginBottom: "20px"}}>
+            <Col span={12} className="flex_box">
+              <Button type="primary" className="mr20_btn40" onClick={this.addArticle}>
+                <Icon type="plus" />
+                新增文章
+              </Button>
+              <Search
+                placeholder="输入文章名"
+                enterButton="搜索"
+                size="large"
+                onSearch={value => console.log(value)}
+              />
+            </Col>
+          </Row>
           <Row>
             <Col span={24}>
-                <BraftEditor
-                  value={editorState}
-                  onChange={this.handleEditorChange}
-                  onSave={this.submitContent}
-                />
+              <Table rowKey="number" bordered columns={columns} dataSource={data} />
             </Col>
           </Row>
         </Col>
