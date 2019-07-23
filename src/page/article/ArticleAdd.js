@@ -1,8 +1,9 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Input, Select } from 'antd';
 // 编辑器
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/index.css';
+const { Option } = Select;
 
 class ArticleAdd extends React.Component {
   constructor(props) {
@@ -40,11 +41,23 @@ class ArticleAdd extends React.Component {
         <Col span={24}>
           <Row>
             <Col span={24}>
+              <h1>新增文章</h1>
+              <div className="flex-form-item">
+                <label>文章标题：</label>
+                <Input placeholder="文章标题" allowClear />
+              </div>
+              <div className="flex-form-item">
+                <label>作者：</label>
+                <Input placeholder="作者" allowClear />
+              </div>
+              <div className="flex-form-item">
+                <label>文章内容：</label>
                 <BraftEditor
                   value={editorState}
                   onChange={this.handleEditorChange}
                   onSave={this.submitContent}
                 />
+              </div>
             </Col>
           </Row>
         </Col>
