@@ -49,7 +49,7 @@ class App extends React.Component {
                 </Link>
               </Menu.Item>
               <Menu.Item key="5">
-                <Link to="/article/list">
+                <Link to="/discuss/list">
                   <Icon type="message" />
                   <span className="nav-text">评论管理</span>
                 </Link>
