@@ -1,9 +1,10 @@
 import React from 'react';
-import { Row, Col, Input, Select } from 'antd';
+import { Row, Col, Input, Select, Button } from 'antd';
 // 编辑器
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/index.css';
 const { Option } = Select;
+const { TextArea } = Input;
 
 class ArticleAdd extends React.Component {
   constructor(props) {
@@ -47,12 +48,16 @@ class ArticleAdd extends React.Component {
                 <Input placeholder="文章标题" allowClear />
               </div>
               <div className="flex-form-item">
+                <label>文章关键字：</label>
+                <TextArea rows={4} placeholder="文章关键字 - keywords" maxLength="200" />
+              </div>
+              <div className="flex-form-item">
                 <label>作者：</label>
                 <Input placeholder="作者" allowClear />
               </div>
               <div className="flex-form-item">
                 <label>栏目：</label>
-                <Select mode="multiple">
+                <Select mode="multiple" placeholder="请选择栏目">
                   <Option value="1">栏目1</Option>
                   <Option value="2">栏目2</Option>
                   <Option value="3">栏目3</Option>
@@ -60,7 +65,7 @@ class ArticleAdd extends React.Component {
               </div>
               <div className="flex-form-item">
                 <label>tags：</label>
-                <Select mode="multiple">
+                <Select mode="multiple" placeholder="请选择tags">
                   <Option value="1">Tag1</Option>
                   <Option value="2">Tag2</Option>
                   <Option value="3">Tag3</Option>
@@ -74,6 +79,15 @@ class ArticleAdd extends React.Component {
                   onSave={this.submitContent}
                 />
               </div>
+              <div className="flex-form-item">
+                <label>自动分页：</label>
+                <Input placeholder="自动分页字数" value="3000" />
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <Button type="primary" className="ml132">提交</Button>
             </Col>
           </Row>
         </Col>
