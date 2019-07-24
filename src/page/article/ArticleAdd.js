@@ -51,6 +51,22 @@ class ArticleAdd extends React.Component {
                 <Input placeholder="作者" allowClear />
               </div>
               <div className="flex-form-item">
+                <label>栏目：</label>
+                <Select mode="multiple">
+                  <Option value="1">栏目1</Option>
+                  <Option value="2">栏目2</Option>
+                  <Option value="3">栏目3</Option>
+                </Select>
+              </div>
+              <div className="flex-form-item">
+                <label>tags：</label>
+                <Select mode="multiple">
+                  <Option value="1">Tag1</Option>
+                  <Option value="2">Tag2</Option>
+                  <Option value="3">Tag3</Option>
+                </Select>
+              </div>
+              <div className="flex-form-item">
                 <label>文章内容：</label>
                 <BraftEditor
                   value={editorState}
