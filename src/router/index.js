@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 // 组件
 import UserMgmt from '../page/user/UserMgmt';
 import ColumnMgmt from '../page/column/ColumnMgmt';
@@ -51,15 +51,13 @@ const routes = [{
 // 路由
 // route.exact严格匹配
 const Routers = () => (
-    <Router>
-        <Switch>
-            {
-                routes.map((route,i)=> (
-                   <Route exact={route.exact} key={i} path={route.path} component={route.component} />
-                ))
-            }
-        </Switch>
-    </Router>
+    <Switch>
+        {
+            routes.map((route,i)=> (
+                <Route exact={route.exact} key={i} path={route.path} component={route.component} />
+            ))
+        }
+    </Switch>
 );
 
 export default Routers;
