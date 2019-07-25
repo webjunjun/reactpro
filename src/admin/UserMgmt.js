@@ -1,9 +1,13 @@
 import React from 'react';
-import { Row, Col, Button, Icon,Table, Popconfirm, message, Modal, Form, Input, Select } from 'antd';
+import AdminHeader from '../components/AdminHeader';
+import AdminSider from '../components/AdminSider';
+import AdminFooter from '../components/AdminFooter';
+import { Layout, Row, Col, Button, Icon, Table, Popconfirm, message, Modal, Form, Input, Select } from 'antd';
+const { Content } = Layout;
 const { Option } = Select;
 
 // 表单
-const EditUserForm = Form.create({name: "edit_user_form"})(
+const EditUserForm = Form.create({ name: "edit_user_form" })(
   class extends React.Component {
     render() {
       const { form } = this.props;
@@ -37,10 +41,10 @@ const EditUserForm = Form.create({name: "edit_user_form"})(
             {getFieldDecorator('role', {
               rules: [{ required: true, message: "请选择角色" }],
             })(<Select defaultValue="1">
-                <Option value="1">超级管理员</Option>
-                <Option value="2">高级管理员</Option>
-                <Option value="3">普通管理员</Option>
-              </Select>)}
+              <Option value="1">超级管理员</Option>
+              <Option value="2">高级管理员</Option>
+              <Option value="3">普通管理员</Option>
+            </Select>)}
           </Form.Item>
         </Form>
       )
@@ -55,12 +59,25 @@ class UserMgmt extends React.Component {
     this.state = {
       visible: false
     };
+    // 为了在回调中使用this，这个绑定是必不可少的
     this.confirmDel = this.confirmDel.bind(this);
     this.cancelDel = this.cancelDel.bind(this);
     this.showModal = this.showModal.bind(this);
     this.handleOk = this.handleOk.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
+
+  // componentDidMount() {
+  //   // 组件挂载后执行
+  // }
+
+  // componentDidUpdate() {
+  //   // 组件更新后执行，首次渲染不执行
+  // }
+
+  // componentWillUnmount() {
+  //   // 销毁组件前执行
+  // }
 
   showModal() {
     this.setState({
@@ -157,7 +174,7 @@ class UserMgmt extends React.Component {
       mobile: "15629047169",
       mail: "975502845@qq.com",
       role: '超级管理员',
-    },{
+    }, {
       number: 2,
       name: "刘军",
       mobile: "15629047169",
@@ -178,43 +195,52 @@ class UserMgmt extends React.Component {
       }]
     }
     return (
-      <Row>
-        <Col span={24}>
-          <Row style={{marginBottom: "20px"}}>
-            <Col span={12} className="flex_box">
-              <Button type="primary" className="mr20_btn40">
-                <Icon type="plus" />
-                新增用户
-              </Button>
-              <Search
-                placeholder="输入姓名"
-                enterButton="搜索"
-                size="large"
-                onSearch={value => console.log(value)}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <Table rowSelection={rowSelection} rowKey="number" bordered columns={columns} dataSource={data} />
-              <Modal
-                title="编辑用户"
-                visible={this.state.visible}
-                onOk={this.handleOk}
-                onCancel={this.handleCancel}
-                okText="确定"
-                cancelText="取消"
-              >
-                <div>
-                  <EditUserForm
-                    wrappedComponentRef={this.saveFormRef}
-                  ></EditUserForm>
-                </div>
-              </Modal>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <React.Fragment>
+        <AdminSider></AdminSider>
+        <Layout>
+          <AdminHeader></AdminHeader>
+          <Content className="container">
+            <Row>
+              <Col span={24}>
+                <Row style={{ marginBottom: "20px" }}>
+                  <Col span={12} className="flex_box">
+                    <Button type="primary" className="mr20_btn40">
+                      <Icon type="plus" />
+                      新增用户
+										</Button>
+                    <Search
+                      placeholder="输入姓名"
+                      enterButton="搜索"
+                      size="large"
+                      onSearch={value => console.log(value)}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24}>
+                    <Table rowSelection={rowSelection} rowKey="number" bordered columns={columns} dataSource={data} />
+                    <Modal
+                      title="编辑用户"
+                      visible={this.state.visible}
+                      onOk={this.handleOk}
+                      onCancel={this.handleCancel}
+                      okText="确定"
+                      cancelText="取消"
+                    >
+                      <div>
+                        <EditUserForm
+                          wrappedComponentRef={this.saveFormRef}
+                        ></EditUserForm>
+                      </div>
+                    </Modal>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Content>
+          <AdminFooter></AdminFooter>
+        </Layout>
+      </React.Fragment>
     );
   }
 }

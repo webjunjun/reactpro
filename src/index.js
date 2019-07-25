@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './assets/css/reset.css';
-// import Router from './router';
-import App from './page/home/App.js'
+import App from './App.js'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
