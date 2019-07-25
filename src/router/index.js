@@ -15,11 +15,31 @@ import ThemeMgmt from '../admin/ThemeMgmt';
 
 // 前端组件
 import Home from '../page/Home';
+import List from '../page/List';
+import Detail from '../page/Detail';
+import About from '../page/About';
+import Login from '../page/Login';
+import SearchList from '../page/SearchList';
 
 const routes = [{
     path: '/',
     component: Home,
     exact: true
+}, {
+    path: '/list',
+    component: List
+}, {
+    path: '/detail',
+    component: Detail
+}, {
+    path: '/about',
+    component: About
+}, {
+    path: '/login',
+    component: Login
+}, {
+    path: '/search',
+    component: SearchList
 }, {
     path: '/admin/*',
     component: UserMgmt
