@@ -1,7 +1,9 @@
 import React from 'react';
-import { Row, Col, Button, Icon, Table, Popconfirm, message, Input } from 'antd';
-
-// 表单
+import AdminHeader from '../components/AdminHeader';
+import AdminSider from '../components/AdminSider';
+import AdminFooter from '../components/AdminFooter';
+import { Layout, Row, Col, Button, Icon, Table, Popconfirm, message, Input } from 'antd';
+const { Content } = Layout;
 const Search = Input.Search;
 
 class ColumnMgmt extends React.Component {
@@ -25,11 +27,11 @@ class ColumnMgmt extends React.Component {
   }
 
   addColumn() {
-    this.props.history.push("/column/add");
+    this.props.history.push("/admin/column/add");
   }
 
   editColumn() {
-    this.props.history.push("/column/update");
+    this.props.history.push("/admin/column/update");
   }
 
   render() {
@@ -85,29 +87,38 @@ class ColumnMgmt extends React.Component {
       cloumn_type: "封面"
     }];
     return (
-      <Row>
-        <Col span={24}>
-          <Row style={{marginBottom: "20px"}}>
-            <Col span={12} className="flex_box">
-              <Button type="primary" className="mr20_btn40" onClick={this.addColumn}>
-                <Icon type="plus" />
-                新增栏目
-              </Button>
-              <Search
-                placeholder="输入栏目"
-                enterButton="搜索"
-                size="large"
-                onSearch={value => console.log(value)}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <Table rowKey="number" bordered columns={columns} dataSource={data} />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <React.Fragment>
+        <AdminSider></AdminSider>
+        <Layout>
+          <AdminHeader></AdminHeader>
+          <Content className="container">
+            <Row>
+              <Col span={24}>
+                <Row style={{marginBottom: "20px"}}>
+                  <Col span={12} className="flex_box">
+                    <Button type="primary" className="mr20_btn40" onClick={this.addColumn}>
+                      <Icon type="plus" />
+                      新增栏目
+                    </Button>
+                    <Search
+                      placeholder="输入栏目"
+                      enterButton="搜索"
+                      size="large"
+                      onSearch={value => console.log(value)}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24}>
+                    <Table rowKey="number" bordered columns={columns} dataSource={data} />
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Content>
+          <AdminFooter></AdminFooter>
+        </Layout>
+      </React.Fragment>
     );
   }
 }

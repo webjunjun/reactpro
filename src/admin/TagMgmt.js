@@ -1,5 +1,9 @@
 import React from 'react';
-import { Row, Col, Button, Icon, Input, Table, Popconfirm, Form, message, Modal } from 'antd';
+import AdminHeader from '../components/AdminHeader';
+import AdminSider from '../components/AdminSider';
+import AdminFooter from '../components/AdminFooter';
+import { Layout, Row, Col, Button, Icon, Input, Table, Popconfirm, Form, message, Modal } from 'antd';
+const { Content } = Layout;
 
 // 表单
 const TagForm = Form.create({name: "tag_form"})(
@@ -126,43 +130,52 @@ class TagMgmt extends React.Component {
       article_num: "2"
     }];
     return (
-      <Row>
-        <Col span={24}>
-          <Row style={{marginBottom: "20px"}}>
-            <Col span={12} className="flex_box">
-              <Button type="primary" className="mr20_btn40" onClick={this.addTag}>
-                <Icon type="plus" />
-                新增Tag
-              </Button>
-              <Search
-                placeholder="输入Tag"
-                enterButton="搜索"
-                size="large"
-                onSearch={value => console.log(value)}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <Table rowKey="number" bordered columns={columns} dataSource={data} />
-              <Modal
-                title="新增tag"
-                visible={this.state.visible}
-                onOk={this.handleOk}
-                onCancel={this.handleCancel}
-                okText="确定"
-                cancelText="取消"
-              >
-                <div>
-                  <TagForm
-                    wrappedComponentRef={this.saveFormRef}
-                  ></TagForm>
-                </div>
-              </Modal>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <React.Fragment>
+        <AdminSider></AdminSider>
+        <Layout>
+          <AdminHeader></AdminHeader>
+          <Content className="container">
+            <Row>
+              <Col span={24}>
+                <Row style={{marginBottom: "20px"}}>
+                  <Col span={12} className="flex_box">
+                    <Button type="primary" className="mr20_btn40" onClick={this.addTag}>
+                      <Icon type="plus" />
+                      新增Tag
+                    </Button>
+                    <Search
+                      placeholder="输入Tag"
+                      enterButton="搜索"
+                      size="large"
+                      onSearch={value => console.log(value)}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24}>
+                    <Table rowKey="number" bordered columns={columns} dataSource={data} />
+                    <Modal
+                      title="新增tag"
+                      visible={this.state.visible}
+                      onOk={this.handleOk}
+                      onCancel={this.handleCancel}
+                      okText="确定"
+                      cancelText="取消"
+                    >
+                      <div>
+                        <TagForm
+                          wrappedComponentRef={this.saveFormRef}
+                        ></TagForm>
+                      </div>
+                    </Modal>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Content>
+          <AdminFooter></AdminFooter>
+        </Layout>
+      </React.Fragment>
     );
   }
 }

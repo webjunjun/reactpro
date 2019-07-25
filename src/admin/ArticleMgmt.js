@@ -1,7 +1,11 @@
 import React from 'react';
-import { Row, Col, Button, Icon, Input, Table, Popconfirm } from 'antd';
-
+import AdminHeader from '../components/AdminHeader';
+import AdminSider from '../components/AdminSider';
+import AdminFooter from '../components/AdminFooter';
+import { Layout, Row, Col, Button, Icon, Input, Table, Popconfirm } from 'antd';
+const { Content } = Layout;
 const Search = Input.Search;
+
 class ArticleMgmt extends React.Component {
   constructor(props) {
     super(props);
@@ -11,11 +15,11 @@ class ArticleMgmt extends React.Component {
   }
 
   addArticle = () => {
-    this.props.history.push("/article/add");
+    this.props.history.push("/admin/article/add");
   }
 
   editArticle = () => {
-    this.props.history.push("/article/update");
+    this.props.history.push("/admin/article/update");
   }
 
   render() {
@@ -83,29 +87,38 @@ class ArticleMgmt extends React.Component {
       author: "刘军"
     }];
     return (
-      <Row>
-        <Col span={24}>
-          <Row style={{marginBottom: "20px"}}>
-            <Col span={12} className="flex_box">
-              <Button type="primary" className="mr20_btn40" onClick={this.addArticle}>
-                <Icon type="plus" />
-                新增文章
-              </Button>
-              <Search
-                placeholder="输入文章名"
-                enterButton="搜索"
-                size="large"
-                onSearch={value => console.log(value)}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <Table rowKey="number" bordered columns={columns} dataSource={data} />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <React.Fragment>
+        <AdminSider></AdminSider>
+        <Layout>
+          <AdminHeader></AdminHeader>
+          <Content className="container">
+            <Row>
+              <Col span={24}>
+                <Row style={{marginBottom: "20px"}}>
+                  <Col span={12} className="flex_box">
+                    <Button type="primary" className="mr20_btn40" onClick={this.addArticle}>
+                      <Icon type="plus" />
+                      新增文章
+                    </Button>
+                    <Search
+                      placeholder="输入文章名"
+                      enterButton="搜索"
+                      size="large"
+                      onSearch={value => console.log(value)}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24}>
+                    <Table rowKey="number" bordered columns={columns} dataSource={data} />
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Content>
+          <AdminFooter></AdminFooter>
+        </Layout>
+      </React.Fragment>
     );
   }
 }
