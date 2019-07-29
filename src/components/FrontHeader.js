@@ -2,6 +2,10 @@
 import React from 'react';
 
 class FrontHeader extends React.Component {
+  displayMenu = () => {
+    console.log("ok");
+  }
+
   render() {
     return (
       <div className="menu_wrap">
@@ -9,6 +13,7 @@ class FrontHeader extends React.Component {
           <div className="logo">
               <a href="/">博文天下</a>
           </div>
+          <span className="iconfont icon-caidan menu_btn" onClick={this.displayMenu}></span>
           <ul className="menu_list">
             <li className="menu_item active"><a href="/">首页</a></li>
             <li className="menu_item"><a href="/web/">web前端</a></li>

@@ -53,63 +53,48 @@
     margin-left: 132px;
 }
 /* 前台 */
-.menu_wrap {
+.menu_wrap{
     width: 100%;
-    height: 80px;
     background-color: #fff;
     margin-bottom: 20px;
     border-bottom: 1px solid #d9d9d9;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0
 }
-
-.menu_wrap .menu_inner {
-    width: 1080px;
+.menu_wrap .menu_inner{
+    max-width: 1050px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 15px;
 }
-
-.menu_inner .logo {
+.menu_inner .logo{
     height: 80px;
     line-height: 80px
 }
-
-.logo a {
+.logo a{
     font-size: 36px;
     font-weight: bold;
     color: #ff5a00;
     text-decoration: none
 }
-
-.menu_list {
-    width: 800px;
-    height: 80px;
+.menu_btn{
+    display: block;
+    font-size: 30px;
+    color: #ff5a00;
+    line-height: 80px;
+}
+.menu_list{
     display: flex;
-    justify-content: flex-end
+    flex-basis: 100%;
+    flex-direction: column;
+    overflow: hidden;
 }
-
-.menu_list .menu_item {
-    height: 78px
-}
-
-.menu_list .active {
-    border-bottom: 2px solid #ff2e63
-}
-
-.menu_item a {
+.menu_item a{
     display: block;
     font-size: 16px;
     color: #666;
-    text-decoration: none;
-    padding: 0 20px;
-    line-height: 78px
-}
-
-.menu_item a:hover {
-    color: #ff2e63
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
 .footer {
@@ -118,45 +103,38 @@
     width: 100%;
     padding: 25px 0;
     margin-top: 30px;
-    background-color: #333
+    background-color: #333;
 }
-
-.footer .footer_wrap {
-    width: 1080px;
-    margin: 0 auto
+.footer .footer_wrap{
+    max-width: 1080px;
+    margin: 0 auto;
 }
-
-.footer_wrap .copyright {
+.footer_wrap .copyright{
     font-size: 14px;
     text-align: center;
-    line-height: 1.5em
+    line-height: 1.5em;
 }
-
-.copyright a {
+.copyright a{
     color: #aaa;
-    text-decoration: none
+    text-decoration: none;
 }
-
-.footer_wrap .police {
+.footer_wrap .police{
     margin: 0 auto;
-    text-align: center
+    text-align: center;
 }
-
-.police a,.police p {
+.police a,.police p{
     display: inline-block;
     height: 20px;
-    line-height: 20px
+    line-height: 20px;
 }
-
-.police img {
-    float: left
+.police img{
+    float: left;
 }
-
-.police p {
+.police p{
     float: left;
     margin: 0 0 0 5px;
     color: #aaa;
-    font-size: 14px
+    font-size: 14px;
 }
 /* 大于576的屏幕 */
 @media (min-width: 576px) {
@@ -166,5 +144,18 @@
     }
     .admin_back .flex-form-item label{
         text-align: right;
+    }
+    /*  */
+    .menu_btn{
+        display: none;
+    }
+    .menu_list{
+        flex-direction: row;
+        flex-basis: auto;
+    }
+    .menu_item a{
+        padding: 0 20px;
+        margin-top: 30px;
+        margin-bottom: 0px;
     }
 }

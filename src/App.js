@@ -2,9 +2,9 @@
 import React from 'react';
 import Routers from './router';
 import './assets/css/reset.css';
+import './assets/css/font/iconfont.css';
 import './assets/css/style.css';
 import { BrowserRouter as Router } from "react-router-dom";
-import { Layout } from 'antd';
 
 class App extends React.Component {
   render() {
