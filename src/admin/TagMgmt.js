@@ -130,7 +130,7 @@ class TagMgmt extends React.Component {
       article_num: "2"
     }];
     return (
-      <React.Fragment>
+      <Layout className="admin_back">
         <AdminSider></AdminSider>
         <Layout>
           <AdminHeader></AdminHeader>
@@ -175,7 +175,7 @@ class TagMgmt extends React.Component {
           </Content>
           <AdminFooter></AdminFooter>
         </Layout>
-      </React.Fragment>
+      </Layout>
     );
   }
 }

@@ -1,7 +1,6 @@
 // import必须在业务代码前
 import React from 'react';
 import { Layout, Menu, Avatar, Dropdown } from 'antd';
-import '../assets/css/back_style.css';
 // 业务代码
 const { Header } = Layout;
 

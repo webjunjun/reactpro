@@ -87,7 +87,7 @@ class ArticleMgmt extends React.Component {
       author: "刘军"
     }];
     return (
-      <React.Fragment>
+      <Layout className="admin_back">
         <AdminSider></AdminSider>
         <Layout>
           <AdminHeader></AdminHeader>
@@ -118,7 +118,7 @@ class ArticleMgmt extends React.Component {
           </Content>
           <AdminFooter></AdminFooter>
         </Layout>
-      </React.Fragment>
+      </Layout>
     );
   }
 }

@@ -41,9 +41,6 @@ const routes = [{
     path: '/search',
     component: SearchList
 }, {
-    path: '/admin/*',
-    component: UserMgmt
-}, {
     path: '/admin/user/list',
     component: UserMgmt,
 }, {
