@@ -53,7 +53,111 @@
     margin-left: 132px;
 }
 /* 前台 */
+.menu_wrap {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0
+}
 
+.menu_wrap .menu_inner {
+    width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between
+}
+
+.menu_inner .logo {
+    height: 80px;
+    line-height: 80px
+}
+
+.logo a {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff5a00;
+    text-decoration: none
+}
+
+.menu_list {
+    width: 800px;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end
+}
+
+.menu_list .menu_item {
+    height: 78px
+}
+
+.menu_list .active {
+    border-bottom: 2px solid #ff2e63
+}
+
+.menu_item a {
+    display: block;
+    font-size: 16px;
+    color: #666;
+    text-decoration: none;
+    padding: 0 20px;
+    line-height: 78px
+}
+
+.menu_item a:hover {
+    color: #ff2e63
+}
+
+.footer {
+    font-size: 16px;
+    color: #aaa;
+    width: 100%;
+    padding: 25px 0;
+    margin-top: 30px;
+    background-color: #333
+}
+
+.footer .footer_wrap {
+    width: 1080px;
+    margin: 0 auto
+}
+
+.footer_wrap .copyright {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5em
+}
+
+.copyright a {
+    color: #aaa;
+    text-decoration: none
+}
+
+.footer_wrap .police {
+    margin: 0 auto;
+    text-align: center
+}
+
+.police a,.police p {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px
+}
+
+.police img {
+    float: left
+}
+
+.police p {
+    float: left;
+    margin: 0 0 0 5px;
+    color: #aaa;
+    font-size: 14px
+}
 /* 大于576的屏幕 */
 @media (min-width: 576px) {
     .admin_back .flex-form-item{

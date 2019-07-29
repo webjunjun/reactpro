@@ -9,8 +9,8 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <FrontHeader></FrontHeader>
-        <div class="article_wrap">
-          <div class="article_inner">
+        <div className="article_wrap">
+          <div className="article_inner">
           </div>
         </div>
         <FrontFooter></FrontFooter>
