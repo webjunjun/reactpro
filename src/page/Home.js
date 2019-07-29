@@ -1,16 +1,19 @@
 import React from 'react';
+import FrontHeader from '../components/FrontHeader';
+import FrontFooter from '../components/FrontFooter';
 import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
+const { Footer, Content } = Layout;
 
 class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header>
-          <div className="logo" />
-        </Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
+        <FrontHeader></FrontHeader>
+        <div class="article_wrap">
+          <div class="article_inner">
+          </div>
+        </div>
+        <FrontFooter></FrontFooter>
       </React.Fragment>
     );
   }

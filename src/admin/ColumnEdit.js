@@ -35,7 +35,7 @@ class ColumnEdit extends React.Component {
     };
 
     return (
-      <React.Fragment>
+      <Layout className="admin_back">
         <AdminSider></AdminSider>
         <Layout>
           <AdminHeader></AdminHeader>
@@ -94,7 +94,7 @@ class ColumnEdit extends React.Component {
           </Content>
           <AdminFooter></AdminFooter>
         </Layout>
-      </React.Fragment>
+      </Layout>
     );
   }
 }

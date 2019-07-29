@@ -1,66 +1,66 @@
-.app{
+/* 后台 */
+.admin_back{
     min-height: 100vh;
 }
-.app .logo{
+.admin_back .logo{
     height: 32px;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
 }
-.top_header{
+.admin_back .top_header{
     background-color: #fff;
     padding: 20px;
 }
-.dropdown_item{
+.admin_back .dropdown_item{
     min-width: 150px;
 }
-.container{
+.admin_back .container{
     flex: 1;
     background-color: #fff;
     padding: 20px;
     margin: 24px 16px 0;
 }
-.bottom_footer{
+.admin_back .bottom_footer{
     text-align: center;
 }
 /* 编辑器 */
-.bf-container {
+.admin_back .bf-container{
     border: 1px solid #d1d1d1;
     border-radius: 5px;
 }
-
-.flex_box{
+.admin_back .flex_box{
     display: flex;
     align-items: center;
 }
-.flex_box .mr20_btn40{
+.admin_back .flex_box .mr20_btn40{
     margin-right: 20px;
     height: 40px;
 }
-
-.flex-form-item{
+.admin_back .flex-form-item{
     margin-bottom: 20px;
 }
-.flex-form-item label{
+.admin_back .flex-form-item label{
     display: inline-block;
     width: 150px;
     text-align: left;
     line-height: 32px;
 }
-.flex-form-item input,.flex-form-item .ant-select{
+.admin_back .flex-form-item input,.admin_back .flex-form-item .ant-select{
     width: 100%;
     max-width: 300px;
 }
-.ml132{
+.admin_back .ml132{
     margin-left: 132px;
 }
+/* 前台 */
 
 /* 大于576的屏幕 */
 @media (min-width: 576px) {
-    .flex-form-item{
+    .admin_back .flex-form-item{
         display: flex;
         justify-content: flex-start;
     }
-    .flex-form-item label{
+    .admin_back .flex-form-item label{
         text-align: right;
     }
 }

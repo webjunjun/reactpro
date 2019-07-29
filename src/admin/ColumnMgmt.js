@@ -87,7 +87,7 @@ class ColumnMgmt extends React.Component {
       cloumn_type: "封面"
     }];
     return (
-      <React.Fragment>
+      <Layout className="admin_back">
         <AdminSider></AdminSider>
         <Layout>
           <AdminHeader></AdminHeader>
@@ -118,7 +118,7 @@ class ColumnMgmt extends React.Component {
           </Content>
           <AdminFooter></AdminFooter>
         </Layout>
-      </React.Fragment>
+      </Layout>
     );
   }
 }

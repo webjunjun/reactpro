@@ -42,7 +42,7 @@ class ArticleAdd extends React.Component {
   render() {
     const { editorState } = this.state;
     return (
-      <React.Fragment>
+      <Layout className="admin_back">
         <AdminSider></AdminSider>
         <Layout>
           <AdminHeader></AdminHeader>
@@ -104,7 +104,7 @@ class ArticleAdd extends React.Component {
           </Content>
           <AdminFooter></AdminFooter>
         </Layout>
-      </React.Fragment>
+      </Layout>
     );
   }
 }
