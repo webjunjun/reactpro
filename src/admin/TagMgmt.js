@@ -39,11 +39,6 @@ class TagMgmt extends React.Component {
     this.state = {
       visible: false
     };
-    // this.addTag = this.addTag.bind(this);
-    this.handleOk = this.handleOk.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-    this.confirmDel = this.confirmDel.bind(this);
-    this.cancelDel = this.cancelDel.bind(this);
   }
 
   // 使用public class fields可以省去在constructor里使用bind绑定this
@@ -53,7 +48,7 @@ class TagMgmt extends React.Component {
     });
   }
 
-  handleOk() {
+  handleOk = () => {
     const form = this.formRef.props.form;
     form.validateFields((err, values) => {
       if (err) {
@@ -66,22 +61,22 @@ class TagMgmt extends React.Component {
     });
   }
 
-  handleCancel() {
+  handleCancel = () => {
     this.setState({
       visible: false,
     });
   }
 
-  confirmDel() {
+  confirmDel = () => {
     message.success('confirmDel');
   }
 
-  cancelDel() {
+  cancelDel = () => {
     message.error('cancelDel');
   }
 
   // 获取form里的数据，通过ref
-  saveFormRef = formRef => {
+  saveFormRef = (formRef) => {
     this.formRef = formRef;
   };
 

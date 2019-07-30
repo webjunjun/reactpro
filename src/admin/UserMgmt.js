@@ -60,11 +60,7 @@ class UserMgmt extends React.Component {
       visible: false
     };
     // 为了在回调中使用this，这个绑定是必不可少的
-    this.confirmDel = this.confirmDel.bind(this);
     this.cancelDel = this.cancelDel.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.handleOk = this.handleOk.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
   }
 
   // componentDidMount() {
@@ -79,13 +75,13 @@ class UserMgmt extends React.Component {
   //   // 销毁组件前执行
   // }
 
-  showModal() {
+  showModal = () => {
     this.setState({
       visible: true,
     });
   }
 
-  handleOk() {
+  handleOk = () => {
     const form = this.formRef.props.form;
     form.validateFields((err, values) => {
       if (err) {
@@ -98,13 +94,13 @@ class UserMgmt extends React.Component {
     });
   }
 
-  handleCancel() {
+  handleCancel = () => {
     this.setState({
       visible: false,
     });
   }
 
-  confirmDel() {
+  confirmDel = () => {
     message.success('confirmDel');
   }
 

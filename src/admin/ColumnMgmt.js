@@ -12,25 +12,21 @@ class ColumnMgmt extends React.Component {
     this.state = {
       visible: false
     };
-    this.confirmDel = this.confirmDel.bind(this);
-    this.cancelDel = this.cancelDel.bind(this);
-    this.addColumn = this.addColumn.bind(this);
-    this.editColumn = this.editColumn.bind(this);
   }
 
-  confirmDel() {
+  confirmDel = () => {
     message.success('confirmDel');
   }
 
-  cancelDel() {
+  cancelDel = () => {
     message.error('cancelDel');
   }
 
-  addColumn() {
+  addColumn = () => {
     this.props.history.push("/admin/column/add");
   }
 
-  editColumn() {
+  editColumn = () => {
     this.props.history.push("/admin/column/update");
   }
 
