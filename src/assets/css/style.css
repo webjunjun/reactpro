@@ -52,6 +52,17 @@
 .admin_back .ml132{
     margin-left: 132px;
 }
+/* 登录 */
+.login_box{
+    max-width: 300px;
+    margin: 100px auto 0;
+}
+.login_box .login_form_forgot{
+    float: right;
+}
+.login_box .login_form_button{
+    width: 100%;
+}
 /* 前台 */
 .menu_wrap{
     width: 100%;
