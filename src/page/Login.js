@@ -1,14 +1,17 @@
 import React from 'react';
 import { Row, Col, Form, Icon, Input, Button, Checkbox } from 'antd';
+import axios from 'axios';
+import '../mock/index';
 
 const LoginForm = Form.create({name: "login_form"})(
   class extends React.Component {
     handleSubmit = (e) => {
-      e.preventDefault();
+      e.preventDefault(); 
       this.props.form.validateFields((err, values) => {
-        if (!err) {
-          console.log('Received values of form: ', values);
-        }
+        axios.post('/login', values)
+        .then((res) => {
+          console.log(res.data);
+        });
       });
     };
     render() {
