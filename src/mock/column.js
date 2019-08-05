@@ -39,7 +39,7 @@ const getArticleList = (params) => {
       "date": Random.date(),
       "read": Random.integer(0, 100),
       "like": Random.integer(0, 100),
-      "intro": Random.cparagraph(20,40)
+      "intro": Random.cparagraph(3, 7)
     });
   }
   return {
