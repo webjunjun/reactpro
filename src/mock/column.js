@@ -1,4 +1,5 @@
 import Mock from "mockjs";// 引入mockjs
+import { array } from "prop-types";
 const Random = Mock.Random;// Mock.Random 是一个工具类，用于生成各种随机数据
 
 // 获取栏目列表
@@ -29,6 +30,25 @@ const getColumnList = (params) => {
     };
 }
 
+const getArticleList = (params) => {
+  let arr = [];
+  for (let index = 0; index < 10; index++) {
+    arr.push({
+      "title": Random.ctitle(),
+      "link": Random.url('http'),
+      "date": Random.date(),
+      "read": Random.integer(0, 100),
+      "like": Random.integer(0, 100),
+      "intro": Random.cparagraph(20,40)
+    });
+  }
+  return {
+    code: 2000,
+    data: arr
+  };
+}
+
 export {
-    getColumnList
+    getColumnList,
+    getArticleList
 }
