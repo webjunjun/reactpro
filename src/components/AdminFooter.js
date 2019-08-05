@@ -6,8 +6,9 @@ const { Footer } = Layout;
 
 class AdminFooter extends React.Component {
   render() {
+    const curYear = new Date().getFullYear();
     return (
-      <Footer className="bottom_footer">博文天下 ©2015~2019 Created by liujunn</Footer>
+      <Footer className="bottom_footer">博文天下 &copy;2015~{curYear} Created by liujunn</Footer>
     );
   }
 }

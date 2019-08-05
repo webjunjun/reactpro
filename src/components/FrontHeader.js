@@ -1,12 +1,38 @@
 // import必须在业务代码前
 import React from 'react';
+import axios from 'axios';
 
 class FrontHeader extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get('/column_list', null)
+    .then((res) => {
+      const json = res.data;
+      this.setState({
+        list: json.data
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
   displayMenu = () => {
     console.log("ok");
   }
 
   render() {
+    const listItems = this.state.list.map((item, index) => {
+      return (
+        <li className={'menu_item' + (item.isActive ? ' active' : '')} key={index}><a href={item.link}>{item.name}</a></li>
+      )
+    });
     return (
       <div className="menu_wrap">
         <div className="menu_inner">
@@ -15,11 +41,7 @@ class FrontHeader extends React.Component {
           </div>
           <span className="iconfont icon-caidan menu_btn" onClick={this.displayMenu}></span>
           <ul className="menu_list">
-            <li className="menu_item active"><a href="/">首页</a></li>
-            <li className="menu_item"><a href="/web/">web前端</a></li>
-            <li className="menu_item"><a href="/projects/">项目</a></li>
-            <li className="menu_item"><a href="/essay/">日常</a></li>
-            <li className="menu_item"><a href="/about/">关于我</a></li>
+            {listItems}
           </ul>
         </div>
       </div>

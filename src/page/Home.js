@@ -1,7 +1,8 @@
 import React from 'react';
 import FrontHeader from '../components/FrontHeader';
 import FrontFooter from '../components/FrontFooter';
-
+// mock必须放在src文件夹下。所以选择打包后的第一个页面
+import '../mock/index';
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -11,20 +12,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://api.example.com/items")
-      .then(res => res.json())
-      .then((result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },(error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+    // 
   }
 
   render() {
