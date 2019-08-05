@@ -6,7 +6,9 @@ class FrontHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [],
+      isExpand: false,
+      expandStyle: {}
     }
   }
 
@@ -24,7 +26,24 @@ class FrontHeader extends React.Component {
   }
 
   displayMenu = () => {
-    console.log("ok");
+    const curExpand = !this.state.isExpand;
+    const tempHeight = { height: (44 * this.state.list.length) + 'px' };
+    let timer;
+    if (curExpand) {
+      timer = 300;
+    } else {
+      timer = 30;
+    }
+    this.setState({
+      expandStyle: tempHeight
+    }, () => {
+      setTimeout(() => {
+        this.setState({
+          isExpand: curExpand,
+          expandStyle: {}
+        });
+      }, timer);
+    });
   }
 
   render() {
@@ -40,7 +59,7 @@ class FrontHeader extends React.Component {
               <a href="/">博文天下</a>
           </div>
           <span className="iconfont icon-caidan menu_btn" onClick={this.displayMenu}></span>
-          <ul className="menu_list">
+          <ul className={'menu_list' + (this.state.isExpand ? ' dispaly_menu' : '')} style={this.state.expandStyle}>
             {listItems}
           </ul>
         </div>
