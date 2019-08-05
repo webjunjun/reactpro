@@ -99,6 +99,11 @@
     flex-basis: 100%;
     flex-direction: column;
     overflow: hidden;
+    height: 0px;
+    transition: height .3s ease;
+}
+ul.dispaly_menu{
+    height: auto;
 }
 .menu_item a{
     display: block;
@@ -163,6 +168,7 @@
     .menu_list{
         flex-direction: row;
         flex-basis: auto;
+        height: auto;
     }
     .menu_item a{
         padding: 0 20px;
