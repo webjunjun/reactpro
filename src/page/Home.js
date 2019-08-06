@@ -91,6 +91,8 @@ class Home extends React.Component {
               </h3>
               <div className="tags_box">
                 <a href="/e/tags/?tagname=web%E5%89%8D%E7%AB%AF" target="_blank">web前端</a>
+                <a href="/e/tags/?tagname=web%E5%89%8D%E7%AB%AF" target="_blank">web前端</a>
+                <a href="/e/tags/?tagname=web%E5%89%8D%E7%AB%AF" target="_blank">web前端</a>
               </div>
             </div>
             <div class="side_box">

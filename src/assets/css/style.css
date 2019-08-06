@@ -225,6 +225,30 @@ ul.dispaly_menu{
     color: #ff5a00;
     margin-right: 4px;
 }
+.side_inner .search_box, .article_inner .search_box {
+    position: relative;
+}
+.search_box input {
+    font-size: 14px;
+    color: #666;
+    width: 238px;
+    padding: 6px 10px;
+    border: 1px solid #eee;
+    background-color: #f8f8f8;
+}
+.search_box .search_btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #444;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 .tuijian_list .tuijian_item {
     width: 100%;
 }
@@ -238,7 +262,7 @@ ul.dispaly_menu{
     font-size: 14px;
     color: #888;
     padding: 3px 8px;
-    margin: 2px;
+    margin: 0 6px 6px 0;
     text-decoration: none;
     background-color: #f7f7f7;
     border: 1px solid #f2f2f2;
