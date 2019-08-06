@@ -69,9 +69,13 @@
     background-color: #fff;
     margin-bottom: 20px;
     border-bottom: 1px solid #d9d9d9;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
 }
 .menu_wrap .menu_inner{
-    max-width: 1050px;
+    max-width: 1080px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -112,8 +116,102 @@ ul.dispaly_menu{
     margin-top: 0px;
     margin-bottom: 20px;
 }
-
-.footer {
+.article_wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1080px;
+    margin: 90px auto 0;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
+}
+.article_inner{
+    max-width: 700px;
+}
+.article_inner .article_item{
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+.article_inner .article_item:last-child{
+    border-bottom: 0;
+}
+.article_item .article_title{
+    font-size: 24px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.article_title a{
+    display: inline-block;
+    max-width: 100%;
+    color: #333;
+    text-decoration: none;
+}
+.article_title a:after{
+    display: block;
+    content: '';
+    height: 2px;
+    width: 0;
+    line-height: 2px;
+    background-color: #666;
+    margin: 0 auto;
+    transition: width .3s linear;
+}
+.article_title a:hover::after{
+    width: 100%;
+}
+.article_item .article_intro {
+    font-size: 14px;
+    color: #666;
+    margin-top: -10px;
+}
+.article_intro span{
+    margin-right: 14px;
+}
+.article_intro i {
+    margin-right: 4px;
+}
+.article_txt p{
+    font-size: 16px;
+    color: #666;
+    text-align: justify;
+}
+.article_btn a{
+    position: relative;
+    float: right;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 6px 10px;
+    background-color: #ff5a00;
+    margin-top: 16px;
+    transform: perspective(1px) translateZ(0);
+    overflow: hidden;
+}
+.article_btn a::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: transform .3s ease-out;
+}
+.article_btn a:hover::before{
+    transform: scale(2);
+}
+.side_inner{
+    max-width: 260px;
+}
+.footer{
     font-size: 16px;
     color: #aaa;
     width: 100%;
@@ -174,5 +272,8 @@ ul.dispaly_menu{
         padding: 0 20px;
         margin-top: 30px;
         margin-bottom: 0px;
+    }
+    .article_wrap{
+        flex-direction: row;
     }
 }
