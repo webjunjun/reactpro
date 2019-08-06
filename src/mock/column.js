@@ -48,7 +48,23 @@ const getArticleList = (params) => {
   };
 }
 
+// 获取推荐列表
+const getHighestList = (params) => {
+  let arr = [];
+  for (let index = 0; index < 10; index++) {
+    arr.push({
+      "title": Random.ctitle(),
+      "link": Random.url('http')
+    });
+  }
+  return {
+    code: 2000,
+    data: arr
+  };
+}
+
 export {
     getColumnList,
-    getArticleList
+    getArticleList,
+    getHighestList
 }

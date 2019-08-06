@@ -9,7 +9,8 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [],
+      high_list: []
     }
   }
 
@@ -28,12 +29,34 @@ class Home extends React.Component {
     .catch((err) => {
       console.log(err);
     });
+
+    axios.get('/highest_list', {
+      params: {
+        column: "index"
+      }
+    })
+    .then((res) => {
+      const json = res.data;
+      this.setState({
+        high_list: json.data
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
     const articleItems = this.state.list.map((item, index) => {
       return (
         <ArticleItem key={index} title={item.title} link={item.link} date={item.date} read={item.read} like={item.like} intro={item.intro} ></ArticleItem>
+      )
+    });
+    const highItems = this.state.high_list.map((item, index) => {
+      return (
+        <li key={index} className="tuijian_item text-tradition">
+          <a href={item.link} title={item.title}>{item.title}</a>
+        </li>
       )
     });
     return (
@@ -58,10 +81,26 @@ class Home extends React.Component {
                 <span>文章推荐</span>
               </h3>
               <ul className="tuijian_list">
-                <li className="tuijian_item text-tradition">
-                  <a href="/essay/10.html" title="《书虫》——适合初学者的英语读物">《书虫》——适合初学者的英语读物</a>
-                </li>
+                {highItems}
               </ul>
+            </div>
+            <div className="side_box">
+              <h3 className="aside_title">
+                <i className="iconfont icon-labelb"></i>
+                <span>分类</span>
+              </h3>
+              <div className="tags_box">
+                <a href="/e/tags/?tagname=web%E5%89%8D%E7%AB%AF" target="_blank">web前端</a>
+              </div>
+            </div>
+            <div class="side_box">
+              <h3 class="aside_title">
+                <i class="iconfont icon-fabu"></i>
+                <span>联系我</span>
+              </h3>
+              <div>
+                <img src="https://www.liujunn.com/skin/2019/imgs/qq_qrcode.jpg" alt="QQ二维码" />
+              </div>
             </div>
           </div>
         </div>
