@@ -211,6 +211,40 @@ ul.dispaly_menu{
 .side_inner{
     max-width: 260px;
 }
+.side_inner .side_box{
+    margin-bottom: 20px;
+}
+.side_box .aside_title {
+    font-size: 18px;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.aside_title i {
+    font-size: 20px;
+    color: #ff5a00;
+    margin-right: 4px;
+}
+.tuijian_list .tuijian_item {
+    width: 100%;
+}
+.tuijian_item a,.profile_box a{
+    font-size: 16px;
+    color: #888;
+    text-decoration: none;
+}
+.tags_box a{
+    display: inline-block;
+    font-size: 14px;
+    color: #888;
+    padding: 3px 8px;
+    margin: 2px;
+    text-decoration: none;
+    background-color: #f7f7f7;
+    border: 1px solid #f2f2f2;
+    white-space: nowrap;
+    transition: all .2s ease-in;
+}
 .footer{
     font-size: 16px;
     color: #aaa;
