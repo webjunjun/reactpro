@@ -214,21 +214,21 @@ ul.dispaly_menu{
 .side_inner .side_box{
     margin-bottom: 20px;
 }
-.side_box .aside_title {
+.side_box .aside_title{
     font-size: 18px;
     color: #666;
     font-weight: 700;
     margin-bottom: 10px;
 }
-.aside_title i {
+.aside_title i{
     font-size: 20px;
     color: #ff5a00;
     margin-right: 4px;
 }
-.side_inner .search_box, .article_inner .search_box {
+.side_inner .search_box, .article_inner .search_box{
     position: relative;
 }
-.search_box input {
+.search_box input{
     font-size: 14px;
     color: #666;
     width: 238px;
@@ -236,10 +236,10 @@ ul.dispaly_menu{
     border: 1px solid #eee;
     background-color: #f8f8f8;
 }
-.search_box .search_btn {
+.search_box .search_btn{
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
     font-size: 20px;
     color: #fff;

@@ -4,7 +4,7 @@ import FrontFooter from '../components/FrontFooter';
 import ArticleItem from '../components/ArticleItem';
 import axios from 'axios';
 // mock必须放在src文件夹下。所以选择打包后的第一个页面
-import '../mock/index';
+// import '../mock/index';
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -69,7 +69,7 @@ class Home extends React.Component {
           <div className="side_inner">
             <div className="side_box">
               <form className="search_box" action="/e/search/index.php" method="post">
-                <input type="text" name="keyboard" placeholder="搜索..." className="search_input" autocomplete="off" />
+                <input type="text" name="keyboard" placeholder="搜索..." className="search_input" autocomplete="off" maxLength="30" />
                 <button className="search_btn" type="submit">
                     <i className="iconfont icon-search"></i>
                 </button>
