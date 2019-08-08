@@ -3,6 +3,7 @@ import AdminHeader from '../components/AdminHeader';
 import AdminSider from '../components/AdminSider';
 import AdminFooter from '../components/AdminFooter';
 import { Layout, Row, Col, Button, Icon, Table, Popconfirm, message, Modal, Form, Input, Select } from 'antd';
+import axios from 'axios';
 const { Content } = Layout;
 const { Option } = Select;
 
@@ -63,9 +64,19 @@ class UserMgmt extends React.Component {
     this.cancelDel = this.cancelDel.bind(this);
   }
 
-  // componentDidMount() {
-  //   // 组件挂载后执行
-  // }
+  componentDidMount() {
+    // 组件挂载后执行
+    axios.post('/users/logIn', {
+      username: 'liujun',
+      password: '123456'
+    })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
   // componentDidUpdate() {
   //   // 组件更新后执行，首次渲染不执行

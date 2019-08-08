@@ -98,3 +98,7 @@ body ::selection {
 ::-ms-clear,::-ms-reveal {
   display: none;
 }
+
+input:focus{
+  outline: none;
+}
