@@ -1,13 +1,12 @@
 import React from 'react';
 import { Row, Col, Form, Icon, Input, Button, Checkbox } from 'antd';
 import axios from 'axios';
-
 const LoginForm = Form.create({name: "login_form"})(
   class extends React.Component {
     handleSubmit = (e) => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
-        axios.post('/login', values)
+        axios.post('/users/login', values)
         .then((res) => {
           console.log(res.data);
         })
