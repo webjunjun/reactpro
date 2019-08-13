@@ -1,8 +1,7 @@
 /**
  * 对request.js网络请求工具进行简单封装
  */
-import request from 'axios';
-import { notification } from 'antd';
+import axios from 'axios';
 const codeMessage = {
     200: '服务器成功返回请求的数据。',
     201: '新建或修改数据成功。',
@@ -20,23 +19,23 @@ const codeMessage = {
     503: '服务不可用，服务器暂时过载或维护。',
     504: '网关超时。'
 };
-
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
-    // 在发送请求之前做些什么
-    return config;
-  }, function (error) {
-    // 对请求错误做些什么
-    return Promise.reject(error);
+  config.timeout = 5000;// 请求超时时间
+  if (localStorage.getItem("token")) {
+    config.headers.Authorization = localStorage.getItem("token");
+  }
+  return config;
+}, function (error) {
+  return Promise.reject(error);
 });
 
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
-    if (response.status === 200) {
-        // 
-    }
-    return response;
-  }, function (error) {
-    // 对响应错误做点什么
-    return Promise.reject(error);
+  return response;
+}, function (error) {
+  error.response.data = codeMessage[error.response.status];
+  return Promise.reject(error);
 });
+
+export default axios;
