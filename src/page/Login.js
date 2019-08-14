@@ -11,7 +11,7 @@ const LoginForm = Form.create({name: "login_form"})(
         .then((res) => {
           message.success(res.data.msg, 1, () => {
             // 跳转首页
-            self.props.history.push("/");
+            location.href = '/';
           });
         })
         .catch((err) => {
