@@ -7,11 +7,16 @@ const LoginForm = Form.create({name: "login_form"})(
       e.preventDefault();
       const self = this;
       this.props.form.validateFields((err, values) => {
+        if (err) {
+          return false;
+        }
         request.post('/users/login', values)
         .then((res) => {
-          message.success(res.data.msg, 1, () => {
+          const json = res.data;
+          message.success(json.msg, 1, () => {
             // 跳转首页
-            location.href = '/';
+            localStorage.setItem("token", json.data.token);
+            // location.href = '/';
           });
         })
         .catch((err) => {
