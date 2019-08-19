@@ -10,14 +10,19 @@ const LoginForm = Form.create({name: "login_form"})(
         if (err) {
           return false;
         }
-        request.post('/users/login', values)
+        request.post('/user/login', values)
         .then((res) => {
           const json = res.data;
-          message.success(json.msg, 1, () => {
-            // 跳转首页
-            localStorage.setItem("token", json.data.token);
-            // location.href = '/';
-          });
+          if (json.code !== 2000) {
+            message.error(json.msg);
+            return false;
+          }
+          message.success(json.msg);
+          // message.success(json.msg, 1, () => {
+          //   // 跳转首页
+          //   localStorage.setItem("token", json.data.token);
+          //   // location.href = '/';
+          // });
         })
         .catch((err) => {
           message.error(err.response.data);
