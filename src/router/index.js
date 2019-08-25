@@ -19,6 +19,7 @@ import List from '../page/List';
 import Detail from '../page/Detail';
 import About from '../page/About';
 import Login from '../page/Login';
+import Register from '../page/Register';
 import SearchList from '../page/SearchList';
 
 const routes = [{
@@ -37,6 +38,9 @@ const routes = [{
 }, {
     path: '/login',
     component: Login
+},{
+    path: '/register',
+    component: Register,
 }, {
     path: '/search',
     component: SearchList
