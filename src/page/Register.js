@@ -14,13 +14,13 @@ const RegisterForm = Form.create({name: "register_form"})(
     goCellphone = () => {
         if (this.state.isCellphone) {
             this.setState({
-                isCellphone: true,
-                regType: "邮箱注册"
-            })
-        } else {
-            this.setState({
                 isCellphone: false,
                 regType: "手机号注册"
+            });
+        } else {
+            this.setState({
+                isCellphone: true,
+                regType: "邮箱注册"
             })
         }
     }
@@ -84,9 +84,8 @@ const RegisterForm = Form.create({name: "register_form"})(
             {getFieldDecorator('password', {
               rules: [{ required: true, message: '请输入密码' }],
             })(
-              <Input
+              <Input.Password
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                type="password"
                 placeholder="Password"
               />,
             )}
