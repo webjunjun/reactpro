@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { Row, Col, Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import request from '../utils/request';
 const LoginForm = Form.create({name: "login_form"})(
@@ -60,7 +61,7 @@ const LoginForm = Form.create({name: "login_form"})(
               initialValue: true,
             })(<Checkbox>自动登录</Checkbox>)}
             <a className="login_form_forgot" href="javascript:;">忘记密码</a>
-            <Button type="primary" htmlType="submit" className="login_form_button">登录</Button> <a href="javascript:;">立即注册</a>
+            <Button type="primary" htmlType="submit" className="login_form_button">登录</Button> <Link to="/register">立即注册</Link>
           </Form.Item>
         </Form>
       )
