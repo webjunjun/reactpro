@@ -32,7 +32,7 @@ const RegisterForm = Form.create({name: "register_form"})(
         if (err) {
           return false;
         }
-        request.post('/user/login', values)
+        request.post('/user/register', values)
         .then((res) => {
           const json = res.data;
           if (json.code !== 2000) {
@@ -62,23 +62,34 @@ const RegisterForm = Form.create({name: "register_form"})(
             <Input
               prefix={<Icon type="mobile" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Cellphone"
+              maxLength="11"
             />,
           )}
         </Form.Item>)
       } else {
         formItem = (<Form.Item label="邮箱">
-            {getFieldDecorator('mail', {
+          {getFieldDecorator('mail', {
             rules: [{ required: true, message: '请输入邮箱' }],
-            })(
+          })(
             <Input
-                prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Mail"
+              prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="Mail"
             />,
-            )}
+          )}
         </Form.Item>)
       }
       return (
         <Form className="register-form" onSubmit={this.handleSubmit}>
+          <Form.Item label="用户名">
+            {getFieldDecorator('username', {
+              rules: [{ required: true, message: '请输入用户名' }],
+            })(
+              <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Username"
+              />,
+            )}
+          </Form.Item>
           {formItem}
           <Form.Item label="设置密码">
             {getFieldDecorator('password', {
@@ -87,6 +98,7 @@ const RegisterForm = Form.create({name: "register_form"})(
               <Input.Password
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Password"
+                maxLength="18"
               />,
             )}
           </Form.Item>
