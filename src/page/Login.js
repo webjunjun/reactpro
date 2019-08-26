@@ -40,7 +40,7 @@ const LoginForm = Form.create({name: "login_form"})(
             })(
               <Input
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Username"
+                placeholder="Username/Cellphone/Mail"
               />,
             )}
           </Form.Item>
@@ -51,6 +51,7 @@ const LoginForm = Form.create({name: "login_form"})(
               <Input.Password
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Password"
+                maxLength="18"
               />,
             )}
           </Form.Item>
