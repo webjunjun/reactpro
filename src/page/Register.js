@@ -80,16 +80,6 @@ const RegisterForm = Form.create({name: "register_form"})(
       }
       return (
         <Form className="register-form" onSubmit={this.handleSubmit}>
-          <Form.Item label="用户名">
-            {getFieldDecorator('username', {
-              rules: [{ required: true, message: '请输入用户名' }],
-            })(
-              <Input
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                placeholder="Username"
-              />,
-            )}
-          </Form.Item>
           {formItem}
           <Form.Item label="设置密码">
             {getFieldDecorator('password', {
