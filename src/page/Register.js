@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Form, Icon, Input, Button, Checkbox, message } from 'antd';
+import { Row, Col, Form, Icon, Input, Button, message } from 'antd';
 import request from '../utils/request';
 const RegisterForm = Form.create({name: "register_form"})(
   class extends React.Component {
@@ -32,6 +32,10 @@ const RegisterForm = Form.create({name: "register_form"})(
         if (err) {
           return false;
         }
+        values.isCellphone = false;
+        if (this.state.isCellphone) {
+          values.isCellphone = true;
+        }
         request.post('/user/register', values)
         .then((res) => {
           const json = res.data;
@@ -39,12 +43,11 @@ const RegisterForm = Form.create({name: "register_form"})(
             message.error(json.msg);
             return false;
           }
-          message.success(json.msg);
-          // message.success(json.msg, 1, () => {
-          //   // 跳转首页
-          //   localStorage.setItem("token", json.data.token);
-          //   // location.href = '/';
-          // });
+          message.success(json.msg, 1, () => {
+            // 跳转首页
+            localStorage.setItem("token", json.data.token);
+            location.href = '/login';
+          });
         })
         .catch((err) => {
           message.error(err.response.data);
@@ -68,7 +71,7 @@ const RegisterForm = Form.create({name: "register_form"})(
         </Form.Item>)
       } else {
         formItem = (<Form.Item label="邮箱">
-          {getFieldDecorator('mail', {
+          {getFieldDecorator('email', {
             rules: [{ required: true, message: '请输入邮箱' }],
           })(
             <Input
@@ -88,7 +91,6 @@ const RegisterForm = Form.create({name: "register_form"})(
               <Input.Password
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Password"
-                maxLength="18"
               />,
             )}
           </Form.Item>
