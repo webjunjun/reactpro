@@ -18,12 +18,11 @@ const LoginForm = Form.create({name: "login_form"})(
             message.error(json.msg);
             return false;
           }
-          message.success(json.msg);
-          // message.success(json.msg, 1, () => {
-          //   // 跳转首页
-          //   localStorage.setItem("token", json.data.token);
-          //   // location.href = '/';
-          // });
+          message.success(json.msg, 1, () => {
+            // 跳转后台首页
+            localStorage.setItem("token", json.data.token);
+            location.href = '/admin/user/list';
+          });
         })
         .catch((err) => {
           message.error(err.response.data);
@@ -51,7 +50,6 @@ const LoginForm = Form.create({name: "login_form"})(
               <Input.Password
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Password"
-                maxLength="18"
               />,
             )}
           </Form.Item>
