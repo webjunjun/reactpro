@@ -58,15 +58,20 @@ class UserMgmt extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      visible: false,
+      limit: 1,// 每页条数
+      page: 1,// 当前页码
+      total: 0,// 总数
+      list: []
     };
     // 为了在回调中使用this，这个绑定是必不可少的
     this.cancelDel = this.cancelDel.bind(this);
   }
 
-  // componentDidMount() {
-  //   // 组件挂载后执行
-  // }
+  componentDidMount() {
+    // 组件挂载后执行
+    this.getUserList();
+  }
 
   // componentDidUpdate() {
   //   // 组件更新后执行，首次渲染不执行
@@ -75,6 +80,43 @@ class UserMgmt extends React.Component {
   // componentWillUnmount() {
   //   // 销毁组件前执行
   // }
+
+  getUserList = () => {
+    axios.post('/user/getUserList', {
+      limit: this.state.limit,
+      page: this.state.page
+    })
+    .then((res) => {
+      const json = res.data;
+      let list = json.data.rows.map((item, index) => {
+        let user_role = "";
+        switch (item.role) {
+          case "2":
+            user_role = "管理员";
+            break;
+          case "3":
+            user_role = "超级管理员";
+          default:
+            user_role = "普通用户";
+            break;
+        }
+        return {
+          number: index + 1,
+          name: item.name || "",
+          mobile: item.cellphone || "",
+          mail: item.email || "",
+          role: user_role
+        };
+      });
+      this.setState({
+        list: list,
+        total: json.data.count
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
   showModal = () => {
     this.setState({
@@ -115,6 +157,7 @@ class UserMgmt extends React.Component {
   };
 
   render() {
+    let self = this;
     const columns = [{
       title: "序号",
       dataIndex: "number",
@@ -153,7 +196,7 @@ class UserMgmt extends React.Component {
             </Popconfirm>
             &nbsp;&nbsp;
             <Popconfirm
-              title="确定停用该管理员吗？"
+              title="确定停用该用户吗？"
               onConfirm={this.confirmDel}
               onCancel={this.cancelDel}
               okText="确定"
@@ -165,19 +208,7 @@ class UserMgmt extends React.Component {
         )
       }
     }];
-    const data = [{
-      number: 1,
-      name: "刘军",
-      mobile: "15629047169",
-      mail: "975502845@qq.com",
-      role: '超级管理员',
-    }, {
-      number: 2,
-      name: "刘军",
-      mobile: "15629047169",
-      mail: "975502845@qq.com",
-      role: ' 管理员',
-    }];
+    const data = this.state.list;
     const rowSelection = {
       hideDefaultSelections: true,
       onChange: (selectedRowKeys, selectedRows) => {
@@ -190,7 +221,16 @@ class UserMgmt extends React.Component {
           // 
         }
       }]
-    }
+    };
+    const pagination = {
+      total: this.state.total,
+      pageSize: this.state.limit,
+      onChange(page) {
+        self.setState({
+          page: page
+        },self.getUserList);
+      }
+    };
     return (
       <Layout className="admin_back">
         <AdminSider></AdminSider>
@@ -215,7 +255,7 @@ class UserMgmt extends React.Component {
                 </Row>
                 <Row>
                   <Col span={24}>
-                    <Table rowSelection={rowSelection} rowKey="number" bordered columns={columns} dataSource={data} />
+                    <Table rowSelection={rowSelection} rowKey="number" bordered columns={columns} dataSource={data} pagination={pagination} />
                     <Modal
                       title="编辑用户"
                       visible={this.state.visible}
