@@ -46,7 +46,7 @@ const RegisterForm = Form.create({name: "register_form"})(
           message.success(json.msg, 1, () => {
             // 跳转首页
             localStorage.setItem("token", json.data.token);
-            location.href = '/login';
+            location.href = '/admin/user/list';
           });
         })
         .catch((err) => {
@@ -66,6 +66,7 @@ const RegisterForm = Form.create({name: "register_form"})(
               prefix={<Icon type="mobile" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Cellphone"
               maxLength="11"
+              autoComplete="off"
             />,
           )}
         </Form.Item>)
@@ -77,6 +78,7 @@ const RegisterForm = Form.create({name: "register_form"})(
             <Input
               prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Mail"
+              autoComplete="off"
             />,
           )}
         </Form.Item>)
@@ -91,6 +93,7 @@ const RegisterForm = Form.create({name: "register_form"})(
               <Input.Password
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Password"
+                autoComplete="off"
               />,
             )}
           </Form.Item>
