@@ -7,6 +7,6 @@ const VisibilityFilters = {
     SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
 
-export default {
+exports.module = {
     VisibilityFilters
 };
