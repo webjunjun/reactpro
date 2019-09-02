@@ -59,7 +59,7 @@ class UserMgmt extends React.Component {
     super(props);
     this.state = {
       visible: false,
-      limit: 1,// 每页条数
+      limit: 10,// 每页条数
       page: 1,// 当前页码
       total: 0,// 总数
       list: []
@@ -96,6 +96,7 @@ class UserMgmt extends React.Component {
             break;
           case "3":
             user_role = "超级管理员";
+            break;
           default:
             user_role = "普通用户";
             break;

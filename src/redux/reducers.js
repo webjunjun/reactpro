@@ -30,7 +30,7 @@ function todoApp(state = initialState, action) {
                 todos: state.todos.map((todo, index) => {
                     if (index === action.index) {
                         return Object.assign({}, todo, {
-                        completed: !todo.completed
+                            completed: !todo.completed
                         })
                     }
                     return todo;
@@ -41,9 +41,9 @@ function todoApp(state = initialState, action) {
     }
 }
 
-const todoApp = combineReducers({
-    visibilityFilter,
-    todos
-});
+// const todoApp = combineReducers({
+//     visibilityFilter,
+//     todos
+// });
 
 export default todoApp;
