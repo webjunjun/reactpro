@@ -144,7 +144,7 @@ class UserMgmt extends React.Component {
     });
   }
 
-  confirmDel = () => {
+  confirmDisable = () => {
     message.success('confirmDel');
   }
 
