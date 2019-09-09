@@ -22,8 +22,10 @@ const codeMessage = {
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
   config.timeout = 5000;// 请求超时时间
-  if (localStorage.getItem("token")) {
-    config.headers.Authorization = localStorage.getItem("token");
+  let userInfo = localStorage.getItem("userInfo");
+  if (userInfo !== null) {
+    userInfo = JSON.parse(userInfo);
+    config.headers.Authorization = userInfo.token;
   }
   return config;
 }, function (error) {

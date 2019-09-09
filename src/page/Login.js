@@ -20,7 +20,7 @@ const LoginForm = Form.create({name: "login_form"})(
           }
           message.success(json.msg, 1, () => {
             // 跳转后台首页
-            localStorage.setItem("token", json.data.token);
+            localStorage.setItem("userInfo", JSON.stringify(json.data));
             location.href = '/admin/user/list';
           });
         })
