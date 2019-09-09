@@ -5,7 +5,7 @@ import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from './actionTypes';
 
 // state结构
 const initialState = {
-    visibilityFilter: VisibilityFilters.SHOW_ALL,
+    // visibilityFilter: VisibilityFilters.SHOW_ALL,
     todos: []
 };
 
