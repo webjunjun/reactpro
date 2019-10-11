@@ -13,7 +13,7 @@ const setVisibilityFilter = (filter) => {
 }
 
 // action描述用户做了什么操作，触发reducer。
-export default {
+export {
     addTodo,
     toggleTodo,
     setVisibilityFilter
