@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Form, Icon, Input, Button, message } from 'antd';
-import request from '../utils/request';
+import request from '../api/request';
 const RegisterForm = Form.create({name: "register_form"})(
   class extends React.Component {
     constructor(props) {

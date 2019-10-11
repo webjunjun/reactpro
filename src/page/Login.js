@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Row, Col, Form, Icon, Input, Button, Checkbox, message } from 'antd';
-import request from '../utils/request';
+import request from '../api/request';
 const LoginForm = Form.create({name: "login_form"})(
   class extends React.Component {
     handleSubmit = (e) => {
