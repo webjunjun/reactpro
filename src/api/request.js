@@ -21,7 +21,10 @@ const codeMessage = {
 };
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
+  //给所有请求添加自定义header
   config.timeout = 5000;// 请求超时时间
+  config.withCredentials = true;// 允许跨域请求带cookie
+  config.baseURL = "";
   let userInfo = localStorage.getItem("userInfo");
   if (userInfo !== null) {
     userInfo = JSON.parse(userInfo);
@@ -40,4 +43,48 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error);
 });
 
-export default axios;
+const request = (obj) => {
+	//直接调用axios函数发起post请求
+	return new Promise((resolve, reject) => {
+		if (obj.url && obj.method) {
+        axios.request({
+          url: obj.url,
+          method: obj.method || "get",
+          data: obj.data
+        })
+				.then((res) => {
+          // 状态码为200
+					if (res.status == 200) {
+						let data = res.data;
+						resolve(data);
+					} else {
+						reject(res);
+					}
+				})
+				.catch((err) => {
+					reject(err);
+				});
+		} else {
+			// 
+		}
+	});
+}
+
+const myRequest = {
+	get(url, data = {}) {
+		return request({
+			url,
+			data,
+			method: "get"
+		});
+	},
+	post(url, data = {}) {
+		return request({
+			url,
+			data,
+			method: "post"
+		});
+	}
+}
+
+export default myRequest;

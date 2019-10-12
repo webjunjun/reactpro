@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Row, Col, Form, Icon, Input, Button, Checkbox, message } from 'antd';
-import request from '../api/request';
+import { login } from '../api/api';
 const LoginForm = Form.create({name: "login_form"})(
   class extends React.Component {
     handleSubmit = (e) => {
@@ -11,9 +11,8 @@ const LoginForm = Form.create({name: "login_form"})(
         if (err) {
           return false;
         }
-        request.post('/user/login', values)
-        .then((res) => {
-          const json = res.data;
+        login(values).then((res) => {
+          const json = res;
           if (json.code !== 2000) {
             message.error(json.msg);
             return false;

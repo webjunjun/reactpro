@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Form, Icon, Input, Button, message } from 'antd';
-import request from '../api/request';
+import { register } from '../api/api';
 const RegisterForm = Form.create({name: "register_form"})(
   class extends React.Component {
     constructor(props) {
@@ -36,7 +36,7 @@ const RegisterForm = Form.create({name: "register_form"})(
         if (this.state.isCellphone) {
           values.isCellphone = true;
         }
-        request.post('/user/register', values)
+        register(values)
         .then((res) => {
           const json = res.data;
           if (json.code !== 2000) {
