@@ -16,8 +16,8 @@ class AdminSider extends React.Component {
 				'/admin/tag/list',
 				'/admin/article/list',
 				'/admin/discuss/list',
-				'/admin/message/list',
-				'/admin/theme/list'
+				// '/admin/message/list',
+				// '/admin/theme/list'
 			]
 		}
 	}
@@ -70,7 +70,7 @@ class AdminSider extends React.Component {
 							<span className="nav-text">评论管理</span>
 						</Link>
 					</Menu.Item>
-					<Menu.Item key="6">
+					{/* <Menu.Item key="6">
 						<Link to={this.state.urlArr[5]}>
 							<Icon type="notification" />
 							<span className="nav-text">消息通知</span>
@@ -81,7 +81,7 @@ class AdminSider extends React.Component {
 							<Icon type="project" />
 							<span className="nav-text">主题模板</span>
 						</Link>
-					</Menu.Item>
+					</Menu.Item> */}
 				</Menu>
 			</Sider>
 		);
