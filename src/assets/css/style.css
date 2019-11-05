@@ -335,3 +335,7 @@ ul.dispaly_menu{
         flex-direction: row;
     }
 }
+/* 后台栏目 */
+.column-form .ant-col-sm-2{
+    min-width: 9em;
+}
