@@ -15,20 +15,28 @@ class AdminSider extends React.Component {
 				'/admin/column/list',
 				'/admin/tag/list',
 				'/admin/article/list',
-				'/admin/discuss/list',
-				// '/admin/message/list',
-				// '/admin/theme/list'
+				'/admin/discuss/list'
+			],
+			funcArr: [
+				'/user/',
+				'/column/',
+				'/tag/',
+				'/article/',
+				'/discuss/'
 			]
 		}
-	}
-
-	componentWillMount() {
+		// 判断当前URL和menu的关系
 		const curUrl = this.props.location.pathname;
-		const curKey = this.state.urlArr.indexOf(curUrl);
+		const funcArr = this.state.funcArr;
+		let curKey = 0;
+		for (let i = 0; i < funcArr.length; i++) {
+			if (curUrl.includes(funcArr[i])) {
+				curKey = i;
+				break;
+			}
+		}
 		if (curKey !== -1) {
-			this.setState({
-				selected: '' + (curKey + 1)
-			});
+			this.state.selected = '' + (curKey + 1);
 		}
 	}
 
