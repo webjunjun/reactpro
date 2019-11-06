@@ -96,7 +96,7 @@ class ArticleAdd extends React.Component {
                 </Row>
                 <Row>
                   <Col span={24}>
-                    <Button type="primary" className="ml132">提交</Button>
+                    <Button type="primary">提交</Button>
                   </Col>
                 </Row>
               </Col>
