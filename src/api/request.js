@@ -31,6 +31,14 @@ axios.interceptors.request.use(function (config) {
     userInfo = JSON.parse(userInfo);
     config.headers.Authorization = userInfo.token;
   }
+  // if (uni.getStorageSync('auth')) { // basic auth认证，携带base64加密的token
+	// 	let userName = uni.getStorageSync('auth');
+	// 	userName = userName.username + ':';
+	// 	const baseToken = window.btoa(userName);
+	// 	request.headers = {
+	// 		"Authorization": `Basic ${baseToken}`
+	// 	};
+	// }
   return config;
 }, function (error) {
   return Promise.reject(error);
@@ -40,6 +48,7 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
+  //发生网络错误后会走到这里
   error.response.data = codeMessage[error.response.status];
   return Promise.reject(error);
 });
