@@ -57,23 +57,23 @@ const request = (obj) => {
 	//直接调用axios函数发起post请求
 	return new Promise((resolve, reject) => {
 		if (obj.url && obj.method) {
-        axios.request({
-          url: obj.url,
-          method: obj.method || "get",
-          data: obj.data
-        })
-				.then((res) => {
-          // 状态码为200
-					if (res.status == 200) {
-						let data = res.data;
-						resolve(data);
-					} else {
-						reject(res);
-					}
-				})
-				.catch((err) => {
-					reject(err);
-				});
+			axios.request({
+				url: obj.url,
+				method: obj.method || "get",
+				data: obj.data
+			})
+			.then((res) => {
+				// 状态码为200
+				if (res.status == 200) {
+					let data = res.data;
+					resolve(data);
+				} else {
+					reject(res);
+				}
+			})
+			.catch((err) => {
+				reject(err);
+			});
 		} else {
 			message.error("参数缺失");
 		}
