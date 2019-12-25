@@ -96,7 +96,7 @@ const ColumnForm = Form.create({name: "column_form"})(
               <TextArea rows={4} placeholder="栏目描述文本 - description" maxLength="200" />,
             )}
           </Form.Item>
-          <Form.Item>
+          <Form.Item className="form_btn" label=" " {...formItemLayout}>
             <Button type="primary" htmlType="submit">提交</Button>
           </Form.Item>
         </Form>

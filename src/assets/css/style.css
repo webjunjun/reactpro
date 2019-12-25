@@ -336,3 +336,6 @@ ul.dispaly_menu{
 .column-form .ant-col-sm-2{
     min-width: 9em;
 }
+.form_btn .ant-form-item-label > label::after{
+    content: ' ';
+}

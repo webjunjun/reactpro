@@ -82,7 +82,15 @@ const ArticleForm = Form.create({name: "article_form"})(
               </Select>,
             )}
           </Form.Item>
-          <Form.Item label="文章内容" {...formItemLayout}>
+          <Form.Item label="文章内容" 
+            {...{labelCol: {
+              xs: { span: 24 },
+              sm: { span: 2 },
+            },
+            wrapperCol: {
+              xs: { span: 24 },
+              sm: { span: 22 },
+            }}}>
             <BraftEditor
               value={editorState}
               onChange={this.handleEditorChange}
@@ -92,7 +100,7 @@ const ArticleForm = Form.create({name: "article_form"})(
           <Form.Item label="自动分页" {...formItemLayout}>
             <Input placeholder="自动分页字数" value="3000" allowClear />
           </Form.Item>
-          <Form.Item>
+          <Form.Item className="form_btn" label=" " {...formItemLayout}>
             <Button type="primary" htmlType="submit">提交</Button>
           </Form.Item>
         </Form>
