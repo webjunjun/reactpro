@@ -247,7 +247,7 @@ class UserMgmt extends React.Component {
                       新增用户
 										</Button>
                     <Search
-                      placeholder="输入姓名"
+                      placeholder="输入姓名/手机号/邮箱"
                       enterButton="搜索"
                       size="large"
                       onSearch={value => console.log(value)}
