@@ -50,7 +50,7 @@ class ColumnMgmt extends React.Component {
       render: (text, record) => {
         return (
           <span>
-            <a href="javascript:;" onClick={this.editColumn}>编辑</a>
+            <a href="#" onClick={this.editColumn}>编辑</a>
             &nbsp;&nbsp;
             <Popconfirm
               title="确定删除该栏目吗？"
@@ -59,7 +59,7 @@ class ColumnMgmt extends React.Component {
               okText="确定"
               cancelText="取消"
             >
-              <a href="javascript:;">删除</a>
+              <a href="#">删除</a>
             </Popconfirm>
           </span>
         )

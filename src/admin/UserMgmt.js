@@ -184,7 +184,7 @@ class UserMgmt extends React.Component {
       render: (text, record) => {
         return (
           <span>
-            <a href="javascript:;" onClick={this.showModal}>编辑</a>
+            <a href="#" onClick={this.showModal}>编辑</a>
             &nbsp;&nbsp;
             <Popconfirm
               title="确定删除该管理员吗？"
@@ -193,7 +193,7 @@ class UserMgmt extends React.Component {
               okText="确定"
               cancelText="取消"
             >
-              <a href="javascript:;">删除</a>
+              <a href="#">删除</a>
             </Popconfirm>
             &nbsp;&nbsp;
             <Popconfirm
@@ -203,7 +203,7 @@ class UserMgmt extends React.Component {
               okText="确定"
               cancelText="取消"
             >
-              <a href="javascript:;">停用</a>
+              <a href="#">停用</a>
             </Popconfirm>
           </span>
         )
