@@ -2,7 +2,7 @@ import React from 'react';
 import AdminHeader from '../components/AdminHeader';
 import AdminSider from '../components/AdminSider';
 import AdminFooter from '../components/AdminFooter';
-import { Layout, Row, Col, Button, Icon, Table, Popconfirm, message, Modal, Form, Input, Select } from 'antd';
+import { Layout, Row, Col, Button, Icon, Table, Popconfirm, message, Modal, Form, Input, Select, Tag } from 'antd';
 import axios from 'axios';
 const { Content } = Layout;
 const { Option } = Select;
@@ -41,7 +41,7 @@ const EditUserForm = Form.create({ name: "edit_user_form" })(
           <Form.Item label="角色">
             {getFieldDecorator('role', {
               rules: [{ required: true, message: "请选择角色" }],
-            })(<Select defaultValue="1">
+            })(<Select initialValue="1">
               <Option value="1">超级管理员</Option>
               <Option value="2">高级管理员</Option>
               <Option value="3">普通管理员</Option>
@@ -89,24 +89,13 @@ class UserMgmt extends React.Component {
     .then((res) => {
       const json = res.data;
       let list = json.data.rows.map((item, index) => {
-        let user_role = "";
-        switch (item.role) {
-          case "2":
-            user_role = "管理员";
-            break;
-          case "3":
-            user_role = "超级管理员";
-            break;
-          default:
-            user_role = "普通用户";
-            break;
-        }
         return {
           number: index + 1,
           name: item.name || "",
           mobile: item.cellphone || "",
           mail: item.email || "",
-          role: user_role
+          role: item.role,
+          status: item.status
         };
       });
       this.setState({
@@ -115,11 +104,12 @@ class UserMgmt extends React.Component {
       });
     })
     .catch((err) => {
-      console.log(err);
+      message.error(err.response.data);
     });
   }
 
-  showModal = () => {
+  showModal = (obj) => {
+    console.log(obj);
     this.setState({
       visible: true,
     });
@@ -177,14 +167,28 @@ class UserMgmt extends React.Component {
       dataIndex: "mail"
     }, {
       title: "角色",
-      dataIndex: "role"
+      dataIndex: "role",
+    }, {
+      title: "状态",
+      dataIndex: "status",
+      render: (text) => {
+        let color = "geekblue";
+        if (text === "停用") {
+          color = "volcano";
+        }
+        return (
+          <Tag color={color}>
+            {text}
+          </Tag>
+        );
+      }
     }, {
       title: "操作",
       dataIndex: "oprate",
       render: (text, record) => {
         return (
           <span>
-            <a href="#" onClick={this.showModal}>编辑</a>
+            <a href="#" onClick={() => this.showModal(record)}>编辑</a>
             &nbsp;&nbsp;
             <Popconfirm
               title="确定删除该管理员吗？"
