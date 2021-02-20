@@ -6,7 +6,6 @@ const LoginForm = Form.create({name: "login_form"})(
   class extends React.Component {
     handleSubmit = (e) => {
       e.preventDefault();
-      const self = this;
       this.props.form.validateFields((err, values) => {
         if (err) {
           return false;
@@ -57,7 +56,7 @@ const LoginForm = Form.create({name: "login_form"})(
               valuePropName: 'checked',
               initialValue: true,
             })(<Checkbox>自动登录</Checkbox>)}
-            <a className="login_form_forgot" href="javascript:;">忘记密码</a>
+            <span className="mock_link login_form_forgot">忘记密码</span>
             <Button type="primary" htmlType="submit" className="login_form_button">登录</Button> <Link to="/register">立即注册</Link>
           </Form.Item>
         </Form>

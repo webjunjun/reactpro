@@ -64,7 +64,7 @@ const request = (obj) => {
 			})
 			.then((res) => {
 				// 状态码为200
-				if (res.status == 200) {
+				if (res.status === 200) {
 					let data = res.data;
 					resolve(data);
 				} else {

@@ -31,13 +31,9 @@ const RegisterForm = Form.create({name: "register_form"})(
         if (err) {
           return false;
         }
-        values.isCellphone = false;
-        if (this.state.isCellphone) {
-          values.isCellphone = true;
-        }
         register(values)
         .then((res) => {
-          const json = res.data;
+          const json = res;
           if (json.code !== 2000) {
             message.error(json.msg);
             return false;
@@ -99,7 +95,7 @@ const RegisterForm = Form.create({name: "register_form"})(
             )}
           </Form.Item>
           <Form.Item>
-            <span className="login_form_forgot" onClick={this.goCellphone}>{this.state.regType}</span>
+            <span className="mock_link login_form_forgot" onClick={this.goCellphone}>{this.state.regType}</span>
             <Button type="primary" htmlType="submit" className="login_form_button">立即注册</Button>
           </Form.Item>
         </Form>

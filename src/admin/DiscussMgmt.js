@@ -2,7 +2,7 @@ import React from 'react';
 import AdminHeader from '../components/AdminHeader';
 import AdminSider from '../components/AdminSider';
 import AdminFooter from '../components/AdminFooter';
-import { Layout, Row, Col, Button, Icon, Input, Table, Popconfirm, Form, message, Modal } from 'antd';
+import { Layout, Row, Col, Input, Table, Popconfirm } from 'antd';
 const { Content } = Layout;
 const Search = Input.Search;
 
@@ -40,7 +40,7 @@ class DiscussMgmt extends React.Component {
       render: (text, record) => {
         return (
           <span>
-            <a href="#" onClick={this.editColumn}>编辑</a>
+            <span className="mock_link" onClick={this.editColumn}>编辑</span>
             &nbsp;&nbsp;
             <Popconfirm
               title="确定删除该tag吗？"
@@ -49,7 +49,7 @@ class DiscussMgmt extends React.Component {
               okText="确定"
               cancelText="取消"
             >
-              <a href="#">删除</a>
+              <span className="mock_link">删除</span>
             </Popconfirm>
           </span>
         )

@@ -17,7 +17,7 @@ class About extends React.Component {
                 <h2>2019年8月版</h2>
                 <p>这一次改版，页面样式没有做改变。主要是使用的语言变了，以前的网站是用的PHP作为后端语言，使用的开源程序帝国CMS，现在后端采用的是express，前端使用的react，博客是自己开发的应用。现在的自主权全部掌握在自己的手里。</p>
                 <p>用过帝国CMS的知道，整个程序功能是十分强大，但是后台界面十分难看。现在网站改版，后端程序是express，后台管理界面是react + react-router4.0 + redux + ant design，前台界面没有采用ant design去设计，还是自己设计的页面样式，只不过在以前不支持手机界面的基础上，加入了对手机的适应。</p>
-                <p>在开发中，发现了一个免费的签发https证书机构<a href="https://letsencrypt.org/zh-cn/" target="_blank">letsencrypt</a>。由于使用的是阿里云的免费签发的证书，只能再WWW域名下使用，如果这个可行的话，以后就用这个签发证书了，说不定可以使用其他的子站了。</p>
+                <p>在开发中，发现了一个免费的签发https证书机构<a href="https://letsencrypt.org/zh-cn/" target="_blank" rel="noopener noreferrer">letsencrypt</a>。由于使用的是阿里云的免费签发的证书，只能再WWW域名下使用，如果这个可行的话，以后就用这个签发证书了，说不定可以使用其他的子站了。</p>
               </div>
               <div className="about_sec">
                 <h2>2019年1月版</h2>

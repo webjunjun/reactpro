@@ -1,3 +1,8 @@
+/* a标签用span代替，使用此样式 */
+.mock_link{
+    cursor: pointer;
+    color: #1890ff;
+}
 /* 后台 */
 .admin_back{
     min-height: 100vh;
@@ -55,7 +60,6 @@
     margin: 100px auto 0;
 }
 .login_box .login_form_forgot{
-    cursor: pointer;
     float: right;
 }
 .login_box .login_form_button{

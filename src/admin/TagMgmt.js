@@ -100,7 +100,7 @@ class TagMgmt extends React.Component {
       render: (text, record) => {
         return (
           <span>
-            <a href="#" onClick={this.editColumn}>编辑</a>
+            <span className="mock_link" onClick={this.editColumn}>编辑</span>
             &nbsp;&nbsp;
             <Popconfirm
               title="确定删除该tag吗？"
@@ -109,7 +109,7 @@ class TagMgmt extends React.Component {
               okText="确定"
               cancelText="取消"
             >
-              <a href="#">删除</a>
+              <span className="mock_link">删除</span>
             </Popconfirm>
           </span>
         )

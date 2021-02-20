@@ -38,7 +38,7 @@ class ArticleMgmt extends React.Component {
       dataIndex: "click_num",
       render: (text) => {
         return (
-          <a href="#">{text}</a>
+          <span className="mock_link">{text}</span>
         );
       }
     }, {
@@ -46,7 +46,7 @@ class ArticleMgmt extends React.Component {
       dataIndex: "discuss_num",
       render: (text) => {
         return (
-          <a href="#">{text}</a>
+          <span className="mock_link">{text}</span>
         );
       }
     }, {
@@ -58,7 +58,7 @@ class ArticleMgmt extends React.Component {
       render: (text, record) => {
         return (
           <span>
-            <a href="#" onClick={this.editArticle}>编辑</a>
+            <span className="mock_link" onClick={this.editArticle}>编辑</span>
             &nbsp;&nbsp;
             <Popconfirm
               title="确定删除该文章吗？"
@@ -67,7 +67,7 @@ class ArticleMgmt extends React.Component {
               okText="确定"
               cancelText="取消"
             >
-              <a href="#">删除</a>
+              <span className="mock_link">删除</span>
             </Popconfirm>
           </span>
         )

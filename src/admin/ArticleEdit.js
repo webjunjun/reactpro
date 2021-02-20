@@ -110,9 +110,9 @@ const ArticleForm = Form.create({name: "article_form"})(
 );
 
 class ArticleEdit extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   // async componentDidMount () {
   //   // 假设此处从服务端获取html格式的编辑器内容
@@ -126,7 +126,7 @@ class ArticleEdit extends React.Component {
   submitContent = async () => {
     // 在编辑器获得焦点时按下ctrl+s会执行此方法
     // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-    const htmlContent = this.state.editorState.toHTML();
+    // const htmlContent = this.state.editorState.toHTML();
     // const result = await saveEditorContent(htmlContent);
   }
 
