@@ -55,6 +55,7 @@
     margin: 100px auto 0;
 }
 .login_box .login_form_forgot{
+    cursor: pointer;
     float: right;
 }
 .login_box .login_form_button{

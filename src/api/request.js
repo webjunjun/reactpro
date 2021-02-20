@@ -25,7 +25,7 @@ axios.interceptors.request.use(function (config) {
   //给所有请求添加自定义header
   config.timeout = 5000;// 请求超时时间
   config.withCredentials = true;// 允许跨域请求带cookie
-  config.baseURL = "";
+  config.baseURL = "/api/v1/";
   let userInfo = localStorage.getItem("userInfo");
   if (userInfo !== null) {
     userInfo = JSON.parse(userInfo);

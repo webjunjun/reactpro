@@ -27,7 +27,6 @@ const RegisterForm = Form.create({name: "register_form"})(
 
     handleSubmit = (e) => {
       e.preventDefault();
-      const self = this;
       this.props.form.validateFields((err, values) => {
         if (err) {
           return false;
@@ -46,7 +45,7 @@ const RegisterForm = Form.create({name: "register_form"})(
           message.success(json.msg, 1, () => {
             // 跳转首页
             localStorage.setItem("token", json.data.token);
-            location.href = '/admin/user/list';
+            this.props.history.push("/admin/user/list");
           });
         })
         .catch((err) => {
@@ -65,7 +64,7 @@ const RegisterForm = Form.create({name: "register_form"})(
             <Input
               prefix={<Icon type="mobile" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Cellphone"
-              maxLength="11"
+              maxLength={11}
               autoComplete="off"
             />,
           )}
@@ -79,6 +78,7 @@ const RegisterForm = Form.create({name: "register_form"})(
               prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Mail"
               autoComplete="off"
+              maxLength={30}
             />,
           )}
         </Form.Item>)
@@ -94,11 +94,12 @@ const RegisterForm = Form.create({name: "register_form"})(
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Password"
                 autoComplete="off"
+                maxLength={18}
               />,
             )}
           </Form.Item>
           <Form.Item>
-            <a className="login_form_forgot" href="javascript:;" onClick={this.goCellphone}>{this.state.regType}</a>
+            <span className="login_form_forgot" onClick={this.goCellphone}>{this.state.regType}</span>
             <Button type="primary" htmlType="submit" className="login_form_button">立即注册</Button>
           </Form.Item>
         </Form>
@@ -114,7 +115,7 @@ class Register extends React.Component {
         <Row>
           <Col span={24}>
             <div className="login_box">
-              <RegisterForm onSubmit={this.handleSubmit} wrappedComponentRef={this.saveFormRef}></RegisterForm>
+              <RegisterForm onSubmit={this.handleSubmit} wrappedComponentRef={this.saveFormRef} history ={this.props.history}></RegisterForm>
             </div>
           </Col>
         </Row>
