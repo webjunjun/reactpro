@@ -25,6 +25,10 @@ const RegisterForm = Form.create({name: "register_form"})(
         }
     }
 
+    goLogin = () => {
+      this.props.history.replace("/login");
+    }
+
     handleSubmit = (e) => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
@@ -40,8 +44,8 @@ const RegisterForm = Form.create({name: "register_form"})(
           }
           message.success(json.msg, 1, () => {
             // 跳转首页
-            localStorage.setItem("token", json.data.token);
-            this.props.history.push("/admin/user/list");
+            // localStorage.setItem("token", json.token);
+            this.props.history.replace("/admin/user/list");
           });
         })
         .catch((err) => {
@@ -96,7 +100,8 @@ const RegisterForm = Form.create({name: "register_form"})(
           </Form.Item>
           <Form.Item>
             <span className="mock_link login_form_forgot" onClick={this.goCellphone}>{this.state.regType}</span>
-            <Button type="primary" htmlType="submit" className="login_form_button">立即注册</Button>
+            <Button type="primary" htmlType="submit" className="width_100">立即注册</Button>
+            <Button type="default" className="width_100" onClick={this.goLogin}>返回登录</Button>
           </Form.Item>
         </Form>
       )
@@ -108,7 +113,7 @@ class Register extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Row>
+        <Row className="login_wrap">
           <Col span={24}>
             <div className="login_box">
               <RegisterForm onSubmit={this.handleSubmit} wrappedComponentRef={this.saveFormRef} history ={this.props.history}></RegisterForm>

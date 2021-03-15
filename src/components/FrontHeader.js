@@ -1,6 +1,5 @@
 // import必须在业务代码前
 import React from 'react';
-import axios from 'axios';
 
 class FrontHeader extends React.Component {
   constructor(props) {
@@ -13,16 +12,7 @@ class FrontHeader extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/column_list', null)
-    .then((res) => {
-      const json = res.data;
-      this.setState({
-        list: json.data
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    // 
   }
 
   displayMenu = () => {

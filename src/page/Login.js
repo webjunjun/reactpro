@@ -19,7 +19,7 @@ const LoginForm = Form.create({name: "login_form"})(
           message.success(json.msg, 1, () => {
             // 跳转后台首页
             localStorage.setItem("userInfo", JSON.stringify(json.data));
-            // location.href = '/admin/user/list';
+            this.props.history.replace("/admin/user/list");
           });
         })
         .catch((err) => {
@@ -38,6 +38,7 @@ const LoginForm = Form.create({name: "login_form"})(
               <Input
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 placeholder="Cellphone/Mail"
+                autoComplete="off"
               />,
             )}
           </Form.Item>
@@ -57,7 +58,7 @@ const LoginForm = Form.create({name: "login_form"})(
               initialValue: true,
             })(<Checkbox>自动登录</Checkbox>)}
             <span className="mock_link login_form_forgot">忘记密码</span>
-            <Button type="primary" htmlType="submit" className="login_form_button">登录</Button> <Link to="/register">立即注册</Link>
+            <Button type="primary" htmlType="submit" className="width_100">登录</Button> <Link to="/register" replace>立即注册</Link>
           </Form.Item>
         </Form>
       )
@@ -69,10 +70,10 @@ class Login extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Row>
+        <Row className="login_wrap">
           <Col span={24}>
             <div className="login_box">
-              <LoginForm onSubmit={this.handleSubmit} wrappedComponentRef={this.saveFormRef}></LoginForm>
+              <LoginForm onSubmit={this.handleSubmit} wrappedComponentRef={this.saveFormRef} history ={this.props.history}></LoginForm>
             </div>
           </Col>
         </Row>

@@ -2,7 +2,7 @@ import React from 'react';
 import FrontHeader from '../components/FrontHeader';
 import FrontFooter from '../components/FrontFooter';
 import ArticleItem from '../components/ArticleItem';
-import axios from 'axios';
+
 // mock必须放在src文件夹下。所以选择打包后的第一个页面
 // import '../mock/index';
 class Home extends React.Component {
@@ -15,35 +15,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/article_list', {
-      params: {
-        column: "index"
-      }
-    })
-    .then((res) => {
-      const json = res.data;
-      this.setState({
-        list: json.data
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-    axios.get('/highest_list', {
-      params: {
-        column: "index"
-      }
-    })
-    .then((res) => {
-      const json = res.data;
-      this.setState({
-        high_list: json.data
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    // 
   }
 
   render() {
@@ -69,7 +41,7 @@ class Home extends React.Component {
           <div className="side_inner">
             <div className="side_box">
               <form className="search_box" action="/e/search/index.php" method="post">
-                <input type="text" name="keyboard" placeholder="搜索..." className="search_input" autocomplete="off" maxLength="30" />
+                <input type="text" name="keyboard" placeholder="搜索..." className="search_input" autoComplete="off" maxLength="30" />
                 <button className="search_btn" type="submit">
                     <i className="iconfont icon-search"></i>
                 </button>
@@ -95,14 +67,11 @@ class Home extends React.Component {
                 <a href="/e/tags/?tagname=web%E5%89%8D%E7%AB%AF" target="_blank">web前端</a>
               </div>
             </div>
-            <div class="side_box">
-              <h3 class="aside_title">
-                <i class="iconfont icon-fabu"></i>
+            <div className="side_box">
+              <h3 className="aside_title">
+                <i className="iconfont icon-fabu"></i>
                 <span>联系我</span>
               </h3>
-              <div>
-                <img src="https://www.liujunn.com/skin/2019/imgs/qq_qrcode.jpg" alt="QQ二维码" />
-              </div>
             </div>
           </div>
         </div>

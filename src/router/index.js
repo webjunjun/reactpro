@@ -25,7 +25,9 @@ import SearchList from '../page/SearchList';
 const routes = [{
     path: '/',
     component: Home,
-    exact: true
+    // sensitive: false,// 是否严格区分路径的大小写，默认false不区分
+    // strict: false,// 是否允许路径后有/，默认false允许
+    exact: true// 是否允许有子路由，默认false允许
 }, {
     path: '/list',
     component: List
@@ -80,7 +82,6 @@ const routes = [{
 }];
 
 // 路由
-// route.exact严格匹配
 const Routers = () => (
     <Switch>
         {
