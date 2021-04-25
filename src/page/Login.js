@@ -4,6 +4,7 @@ import { Row, Col, Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { login } from '../api/api';
 const LoginForm = Form.create({name: "login_form"})(
   class extends React.Component {
+
     handleSubmit = (e) => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
@@ -27,6 +28,7 @@ const LoginForm = Form.create({name: "login_form"})(
         });
       });
     };
+
     render() {
       const { getFieldDecorator } = this.props.form;
       return (

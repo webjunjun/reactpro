@@ -10,15 +10,15 @@
 /* 登录 注册 */
 .login_wrap{
     background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
-    /* background: linear-gradient(91deg,#f1eefc,#9dc6ff 70%,#a5bcff); */
     min-height: 100%;
 }
 .login_wrap .login_box{
     max-width: 300px;
     margin: 100px auto 0;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255, .5);
     border-radius: 5px;
+    backdrop-filter: blur(10px);
 }
 .login_box .ant-form-item:last-child{
     margin-bottom: 0px;
