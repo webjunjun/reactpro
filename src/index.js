@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.js'
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux'
+// import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
-import reducer from './redux/reducers'
-
-const store = createStore(reducer)
+import { store } from './store'
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
     </Provider>,
     document.getElementById('root')
 );
@@ -21,3 +21,6 @@ ReactDOM.render(
  * https://bit.ly/CRA-PWA
  */
 serviceWorker.unregister();
+
+// 网站性能监测
+// reportWebVitals();

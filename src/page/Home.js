@@ -4,7 +4,7 @@ import FrontFooter from '../components/FrontFooter';
 import ArticleItem from '../components/ArticleItem';
 
 // mock必须放在src文件夹下。所以选择打包后的第一个页面
-// import '../mock/index';
+// import '../../mock/index';
 class Home extends React.Component {
   constructor(props) {
     super(props);
